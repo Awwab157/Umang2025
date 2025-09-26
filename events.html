@@ -1,457 +1,361 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Umang 2025</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-
-	<!-- CSS here -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/css/slicknav.css">
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-    <link rel="stylesheet" href="assets/css/gijgo.css">
-	<link rel="stylesheet" href="assets/css/animate.min.css">
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
-	<link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-	<link rel="stylesheet" href="assets/css/themify-icons.css">
-	<link rel="stylesheet" href="assets/css/slick.css">
-	<link rel="stylesheet" href="assets/css/nice-select.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Umang 25 - Events</title>
+  <meta name="description" content="Events - Umang '25 | IIIT Bangalore" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0077b6",
+            "background-light": "#f0f8ff",
+            "background-dark": "#023e8a",
+            accent: "#FCA5FE"
+          },
+          fontFamily: {
+            display: ["Poppins", "sans-serif"],
+          },
+          borderRadius: {
+            xl: "1rem",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    .hero-pattern {
+      background-image: url("assets/img/hero/hero2.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* small visual tweaks for event cards */
+    .sport-card-img {
+      transition: transform .35s ease;
+    }
+    .sport-card:hover .sport-card-img {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
-<body>
-    <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loader.png" alt="" style="max-width: 100px; width: 100px; height: 100px;">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-<header>
-    <!--? Header Start -->
-    <style>
-        .header-area {
-            background-color: #010110;
-        }
-        .header-area .main-menu ul#navigation li a {
-            color: white;
-            transition: color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            padding: 12px 20px;
-            border-radius: 4px;
-            font-size: 1.1rem;
-        }
-        
-        /* Shimmer effect for navigation buttons */
-        .header-area .main-menu ul#navigation li a::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -75%;
-            width: 50%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(252, 165, 254, 0.5), transparent);
-            transform: skewX(-20deg);
-            transition: all 0.5s;
-        }
-        
-        .header-area .main-menu ul#navigation li a:hover::after {
-            left: 130%;
-        }
-        
-        .header-area .main-menu ul#navigation li a:hover {
-            color: #FCA5FE;
-        }
-        
-        .main-header{
-            background-color: #010110;
-            padding: 15px 0;
-        }
-        .logo img {
-            width: 100px !important;
-            max-width: none;
-        }
-    </style>
-    <div class="header-area">
-        <div class="main-header header-sticky">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <!-- Logo -->
-                    <div class="col-xl-2 col-lg-2 col-md-1">
-                        <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/umang25logo.png" alt="Umang25Logo" width="80%"></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-10 col-lg-10 col-md-10">
-                        <div class="menu-main d-flex align-items-center justify-content-end">
-                            <!-- Main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="events.html">Events</a></li>
-                                        <li><a href="team.html">Team</a></li>
-                                        <!-- <li><a href="schedule.html">Contact</a></li> -->
-                                        <!-- <li><a href="blog.html">Blog</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                            </ul> -->
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                <a href="#" class="btn header-btn">Get Your Ticket</a>
-                            </div> -->
-                        </div>
-                    </div>   
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-</header>
-<main>
-    <!--? Hero Start -->
-    <style>
-        .slider-height2 {
-            background-image: url(assets/img/hero/hero2.png); /* Replace with the path to your image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 40vh;
-        }
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
 
-        .hero-cap h2 {
-            color: white; /* Adjust color for readability */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better contrast */
-        }
-    </style>
-    <div class="slider-area2">
-        <div class="slider-height2 d-flex align-items-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2>Events</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <!-- Header -->
+  <header class="bg-white/95 dark:bg-black/80 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/img/logo/umang25logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3 object-contain" />
+        <span class="text-2xl md:text-3xl font-bold text-primary">Umang '25</span>
+      </a>
+      <nav class="hidden md:flex space-x-8 font-semibold">
+        <a href="index.html" class="hover:text-primary transition">Home</a>
+        <a href="events.html" class="text-primary font-bold transition">Events</a>
+        <a href="team.html" class="hover:text-primary transition">Team</a>
+        <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="menu-toggle" class="md:hidden p-2">
+          <span class="material-icons text-3xl text-primary">menu</span>
+        </button>
+        <button id="dark-toggle-desktop" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+          Toggle Dark
+        </button>
+      </div>
     </div>
-    <!-- Hero End -->
-    <!--? About Law Start-->
 
-    <style>
-        .sports-section {
-            background-color: #14062E;
-            padding: 50px 0;
-            display: flex;
-            justify-content: center;
-        }
-        .sports-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-            max-width: 1000px;
-        }
-        .sport-card {
-            background-color: #422989;
-            border-radius: 8px;
-            color: #FFFFFF;
-            width: 45%;
-            max-width: 240px;
-            aspect-ratio: 1 / 1.6;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .sport-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-        }
-        .sport-card img {
-            width: 100%;
-            height: 55%;
-            object-fit: cover;
-            border-radius: 4px;
-        }
-        .sport-title {
-            color: #DF84E1;
-            font-size: 26px;
-            margin: 15px 0;
-            font-weight: bold;
-        }
-        .sport-categories {
-            font-size: 16px;
-            line-height: 1.4;
-            white-space: normal;
-            max-height: 60px;
-            overflow: hidden;
-        }
-    </style>
-    
-    <section class="sports-section">
-        <div class="sports-container">
-            <a href="basketball.html" class="sport-card">
-                <img src="assets/img/gallery/basketball.png" alt="Basketball">
-                <div class="sport-title">Basketball</div>
-                <div class="sport-categories">
-                    Men's 3v3<br>
-                    Men's 5v5<br>
-                    Women's 3v3
-                </div>
-            </a>
-    
-            <a href="football.html" class="sport-card">
-                <img src="assets/img/gallery/football.png" alt="Football">
-                <div class="sport-title">Football</div>
-                <div class="sport-categories">
-                    Men's 6v6
-                </div>
-            </a>
-    
-            <a href="tabletennis.html" class="sport-card">
-                <img src="assets/img/gallery/tabletennis.png" alt="Table Tennis">
-                <div class="sport-title">Table Tennis</div>
-                <div class="sport-categories">
-                    Men's Team <br>
-                    Men's Singles <br>
-                    Men's Doubles <br>
-                    Women's Singles <br>
-                    Mixed Doubles
-                </div>
-            </a>
-    
-            <a href="badminton.html" class="sport-card">
-                <img src="assets/img/gallery/badminton.png" alt="Badminton">
-                <div class="sport-title">Badminton</div>
-                <div class="sport-categories">
-                    Men's Team <br>
-                    Women's Singles <br>
-                    Mixed Doubles <br>
-                    Women's Doubles
-                </div>
-            </a>
-    
-            <a href="volleyball.html" class="sport-card">
-                <img src="assets/img/gallery/volleyball.png" alt="Volleyball">
-                <div class="sport-title">Volleyball</div>
-                <div class="sport-categories">
-                    Men's Team
-                </div>
-            </a>
-    
-            <a href="tennis.html" class="sport-card">
-                <img src="assets/img/gallery/tennis.png" alt="Tennis">
-                <div class="sport-title">Tennis</div>
-                <div class="sport-categories">
-                    Men's Singles <br>
-                    Men's Doubles
-                </div>
-            </a>
-    
-            <a href="kabaddi.html" class="sport-card">
-                <img src="assets/img/gallery/kabaddi.png" alt="Kabaddi">
-                <div class="sport-title">Kabaddi</div>
-                <div class="sport-categories">
-                    Men's Team
-                </div>
-            </a>
-    
-            <a href="throwball.html" class="sport-card">
-                <img src="assets/img/gallery/throwball.png" alt="Throwball">
-                <div class="sport-title">Throwball</div>
-                <div class="sport-categories">
-                    Women's Team
-                </div>
-            </a>
-    
-            <a href="chess.html" class="sport-card">
-                <img src="assets/img/gallery/chess.png" alt="Chess">
-                <div class="sport-title">Chess</div>
-                <div class="sport-categories">
-                    Team
-                </div>
-            </a>
-        </div>
+    <!-- Mobile Nav -->
+    <nav
+      id="mobile-nav"
+      class="fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300"
+      style="display: none;"
+    >
+      <button id="menu-close" class="absolute top-5 right-8 text-gray-700 dark:text-gray-200">
+        <span class="material-icons text-3xl">close</span>
+      </button>
+      <a href="index.html" class="hover:text-primary transition">Home</a>
+      <a href="events.html" class="text-primary font-bold transition">Events</a>
+      <a href="team.html" class="hover:text-primary transition">Team</a>
+      <a href="contact.html" class="hover:text-primary transition">Contact</a>
+      <button id="dark-toggle" class="mt-8 px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+        Toggle Dark Mode
+      </button>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="hero-pattern w-full min-h-[28vh] flex items-center relative pt-28">
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-white text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">Events</h1>
+      <p class="text-white/90 max-w-2xl mx-auto">All sporting events at Umang '25 — click an event to view details & rules.</p>
+    </div>
+  </section>
+
+  <!-- Events Grid -->
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <section class="mb-10 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Sports & Competitions</h2>
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Click any card to open the event's page and learn more about categories, rules and registration.</p>
     </section>
-        
 
-    <!-- About Law End-->
-    <!-- accordion End -->
-    <!--? gallery Products Start -->
-    <!-- <div class="gallery-area fix">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery1.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery2.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery3.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery4.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                             <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery5.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery6.png);"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Card: Basketball -->
+      <a href="basketball.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/basketball.png" alt="Basketball" class="object-cover w-full h-full sport-card-img" />
         </div>
-    </div> -->
-    <!-- gallery Products End -->
-    </main>
-    <footer>
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <!-- Address Column -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Address</h4>
-                                <div class="footer-pera">
-                                    <p>26/C, Opposite to Infosys Gate 10 <br> Electronics City Phase 1, Hosur Road <br> Bengaluru - 560100, Karnataka</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Info Column -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Contact Info</h4>
-                                <ul>
-                                    <li><a href="tel:+918824119467">Bharat: +91 88241 19467</a></li>
-                                    <li><a href="tel:+919591544183">Mithilesh: +91 95915 44183</a></li>
-                                    <li><a href="tel:+918147691596">Tarun: +91 81476 91596</a></li>
-                                    <li><a href="mailto:sportscomm@iiitb.ac.in">Mail: sportscomm@iiitb.ac.in</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Important Links Column -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Follow Us</h4>
-                                <ul>
-                                    <li><a href="https://www.instagram.com/umang_iiitb/" target="_blank"><i class="fab fa-instagram"></i> umang_iiitb</a></li>
-                                    <li><a href="https://www.instagram.com/sportscomm_iiitb/" target="_blank"><i class="fab fa-instagram"></i> sportscomm_iiitb</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copy-right" style="display: flex; justify-content: center; text-align: center;">
-                <p style="color: #FCA5FE;">
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with 
-                    <i class="fa fa-heart" aria-hidden="true"></i> by 
-                    <a href="https://colorlib.com" target="_blank" style="color: #FCA5FE; text-decoration: none;">Colorlib</a>
-                </p>
-            </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Basketball</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Men's 3v3 • Men's 5v5 • Women's 3v3
+          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
         </div>
-    </footer>
-    <!-- Scroll Up -->
-    <div id="back-top" >
-        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+      </a>
+
+      <!-- Card: Football -->
+      <a href="football.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/football.png" alt="Football" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Football</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Men's 6v6</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Table Tennis -->
+      <a href="tabletennis.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/tabletennis.png" alt="Table Tennis" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Table Tennis</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Men's Team • Men's Singles • Men's Doubles • Women's Singles • Mixed Doubles
+          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Badminton -->
+      <a href="badminton.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/badminton.png" alt="Badminton" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Badminton</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            Men's Team • Women's Singles • Mixed Doubles • Women's Doubles
+          </p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Volleyball -->
+      <a href="volleyball.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/volleyball.png" alt="Volleyball" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Volleyball</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Men's Team</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Tennis -->
+      <a href="tennis.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/tennis.png" alt="Tennis" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Tennis</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Men's Singles • Men's Doubles</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Kabaddi -->
+      <a href="kabaddi.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/kabaddi.png" alt="Kabaddi" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Kabaddi</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Men's Team</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Throwball -->
+      <a href="throwball.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/throwball.png" alt="Throwball" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Throwball</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Women's Team</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card: Chess -->
+      <a href="chess.html" class="group block rounded-xl overflow-hidden bg-white dark:bg-gray-800 shadow-lg hover:shadow-2xl transform transition hover:-translate-y-2">
+        <div class="aspect-[4/3] w-full overflow-hidden">
+          <img src="assets/img/gallery/chess.png" alt="Chess" class="object-cover w-full h-full sport-card-img" />
+        </div>
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white">Chess</h3>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Team</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-primary font-semibold">View Details</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
+          </div>
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 dark:bg-black text-white py-12 mt-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row gap-8 justify-between">
+        <div class="flex-1 text-center md:text-left">
+          <h4 class="text-lg font-bold mb-2 text-primary">Address</h4>
+          <p>
+            26C, Opposite to Infosys Gate 10<br />
+            Electronic City Phase 1, Hosur Road<br />
+            Bengaluru - 560100, Karnataka
+          </p>
+        </div>
+        <div class="flex-1 text-center md:text-left">
+          <h4 class="text-lg font-bold mb-2 text-primary">Contact Info</h4>
+          <ul>
+            <li>
+              Bharat:
+              <a href="tel:+918824119467" class="text-primary hover:underline">+91 88241 19467</a>
+            </li>
+            <li>
+              Mithilesh:
+              <a href="tel:+919591544183" class="text-primary hover:underline">+91 95915 44183</a>
+            </li>
+            <li>
+              Tarun:
+              <a href="tel:+918147691596" class="text-primary hover:underline">+91 81476 91596</a>
+            </li>
+            <li>
+              Email:
+              <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex-1 text-left">
+          <h4 class="text-lg font-bold mb-2 text-primary">Follow Us</h4>
+          <ul class="flex flex-col gap-2 items-start">
+            <li>
+              <a href="https://www.instagram.com/umang_iiitb/" target="_blank" class="hover:underline flex items-center gap-2">
+                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
+                <span>@umang_iiitb</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/sportscomm_iiitb/" target="_blank" class="hover:underline flex items-center gap-2">
+                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
+                <span>@sportscomm_iiitb</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-300">
+        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
+      </div>
     </div>
+  </footer>
 
-    <!-- JS here -->
+  <!-- Scripts -->
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileNav = document.getElementById("mobile-nav");
 
-    <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-    <!-- Jquery, Popper, Bootstrap -->
-    <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <!-- Jquery Mobile Menu -->
-    <script src="./assets/js/jquery.slicknav.min.js"></script>
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        mobileNav.style.display = "flex";
+        document.body.style.overflow = "hidden";
+      });
+    }
+    if (menuClose) {
+      menuClose.addEventListener("click", () => {
+        mobileNav.style.display = "none";
+        document.body.style.overflow = "";
+      });
+    }
 
-    <!-- Jquery Slick , Owl-Carousel Plugins -->
-    <script src="./assets/js/owl.carousel.min.js"></script>
-    <script src="./assets/js/slick.min.js"></script>
-    <!-- One Page, Animated-HeadLin -->
-    <script src="./assets/js/wow.min.js"></script>
-    <script src="./assets/js/animated.headline.js"></script>
-    <script src="./assets/js/jquery.magnific-popup.js"></script>
+    // Dark mode toggles (desktop & mobile)
+    const darkToggle = document.getElementById("dark-toggle");
+    const darkToggleDesktop = document.getElementById("dark-toggle-desktop");
 
-    <!-- Date Picker -->
-    <script src="./assets/js/gijgo.min.js"></script>
-    <!-- Nice-select, sticky -->
-    <script src="./assets/js/jquery.nice-select.min.js"></script>
-    <script src="./assets/js/jquery.sticky.js"></script>
-    
-    <!-- counter , waypoint -->
-    <script src="./assets/js/jquery.counterup.min.js"></script>
-    <script src="./assets/js/waypoints.min.js"></script>
-    <script src="./assets/js/jquery.countdown.min.js"></script>
-    <!-- contact js -->
-    <script src="./assets/js/contact.js"></script>
-    <script src="./assets/js/jquery.form.js"></script>
-    <script src="./assets/js/jquery.validate.min.js"></script>
-    <script src="./assets/js/mail-script.js"></script>
-    <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-    
-    <!-- Jquery Plugins, main Jquery -->	
-    <script src="./assets/js/plugins.js"></script>
-    <script src="./assets/js/main.js"></script>
-    
-    </body>
+    function toggleDark() {
+      document.documentElement.classList.toggle("dark");
+      // close mobile nav after toggling dark
+      if (mobileNav) {
+        mobileNav.style.display = "none";
+        document.body.style.overflow = "";
+      }
+    }
+
+    if (darkToggle) darkToggle.addEventListener("click", toggleDark);
+    if (darkToggleDesktop) darkToggleDesktop.addEventListener("click", toggleDark);
+
+    // preserve dark mode preference across page reloads (simple)
+    if (localStorage.getItem("umang-dark") === "true") {
+      document.documentElement.classList.add("dark");
+    }
+
+    document.addEventListener("click", (e) => {
+      // if user toggles dark using desktop control, also persist
+      if (e.target && (e.target.id === "dark-toggle" || e.target.id === "dark-toggle-desktop" || e.target.closest("#dark-toggle") || e.target.closest("#dark-toggle-desktop"))) {
+        const isDark = document.documentElement.classList.contains("dark");
+        localStorage.setItem("umang-dark", isDark);
+      }
+    });
+  </script>
+</body>
 </html>
