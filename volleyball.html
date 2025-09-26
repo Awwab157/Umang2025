@@ -43,15 +43,37 @@
             background-color: #010110;
         }
         .header-area .main-menu ul#navigation li a {
-        color: white;
-        transition: color 0.3s ease; /* Smooth transition */
+            color: white;
+            transition: color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 1.1rem;
         }
-        /* Set hover color to pink */
+        /* Shimmer effect for navigation buttons */
+        .header-area .main-menu ul#navigation li a::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -75%;
+            width: 50%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(252, 165, 254, 0.5), transparent);
+            transform: skewX(-20deg);
+            transition: all 0.5s;
+        }
+        .header-area .main-menu ul#navigation li a:hover::after {
+            left: 130%;
+        }
         .header-area .main-menu ul#navigation li a:hover {
             color: #FCA5FE;
         }
         .main-header{
             background-color: #010110;
+            padding: 15px 0;
+        }
+        .logo img {
+            width: 100px !important;
+            max-width: none;
         }
     </style>
     <div class="header-area">
@@ -176,13 +198,17 @@
             background-color: #422989;
             color: #FFFFFF;
             padding: 20px 24px;
-            border-radius: 5px;
+            border-radius: 30px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: all 0.4s ease;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         .btn-container .btn:hover {
             background-color: #6A3EBF;
+            transform: translateY(-5px) scale(1.05);
+            border-radius: 5px;
         }
         .point-of-contact {
             align-items: center;
@@ -409,16 +435,3 @@
     <script src="./assets/js/main.js"></script>
     
             <!-- Anime.js CDN -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-            <script>
-                // Animation for the hero title
-                anime({
-                    targets: '.hero-cap h2',
-                    translateY: [-50, 0],
-                    opacity: [0, 1],
-                    duration: 1200,
-                    easing: 'easeOutExpo'
-                });
-            </script>
-    </body>
-</html>

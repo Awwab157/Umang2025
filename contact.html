@@ -43,15 +43,41 @@
             background-color: #010110;
         }
         .header-area .main-menu ul#navigation li a {
-        color: white;
-        transition: color 0.3s ease; /* Smooth transition */
+            color: white;
+            transition: color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 1.1rem;
         }
-        /* Set hover color to pink */
+        
+        /* Shimmer effect for navigation buttons */
+        .header-area .main-menu ul#navigation li a::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -75%;
+            width: 50%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(252, 165, 254, 0.5), transparent);
+            transform: skewX(-20deg);
+            transition: all 0.5s;
+        }
+        
+        .header-area .main-menu ul#navigation li a:hover::after {
+            left: 130%;
+        }
+        
         .header-area .main-menu ul#navigation li a:hover {
             color: #FCA5FE;
         }
+        
         .main-header{
             background-color: #010110;
+            padding: 15px 0;
+        }
+        .logo img {
+            width: 100px !important;
+            max-width: none;
         }
     </style>
     <div class="header-area">
