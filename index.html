@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -30,6 +31,7 @@
       },
     };
   </script>
+
   <style>
     .hero-bg {
       background-image: url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1935&auto=format&fit=crop");
@@ -37,12 +39,102 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    .bg-white80 {
-      background: rgba(255, 255, 255, 1);
+    .bg-white80 { background: rgba(255,255,255,1); }
+    .bg-black50 { background: rgba(0,0,0,1); }
+
+    /* --- Headline letter animation --- */
+    .headline-wrap { display:inline-flex; align-items: end; gap: 0.6rem; line-height: 1; }
+    .logo-letters { display:inline-flex; gap:0.45rem; font-weight:800; letter-spacing:0.02em; }
+    .logo-letters .letter {
+      display:inline-block;
+      transform: translateY(28px) scale(.94);
+      opacity: 0;
+      font-size: clamp(2.5rem, 6vw, 4.75rem); /* responsive size */
+      line-height: 1;
+      color: white;
+      -webkit-font-smoothing:antialiased;
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+      animation: popUp 520ms cubic-bezier(.2,.9,.25,1) both;
+      /* each letter will set --i inline or via nth-child if you'd prefer */
+      animation-delay: calc(var(--i, 1) * 120ms);
+      text-shadow: 0 6px 18px rgba(2,6,23,0.55);
     }
-    .bg-black50 {
-      background: rgba(0, 0, 0, 1);
+
+    .headline-year {
+      display:inline-block;
+      transform: translateY(34px) scale(.98);
+      opacity: 0;
+      font-size: clamp(1.1rem, 2.6vw, 1.6rem);
+      font-weight:700;
+      color:white;
+      margin-left: 0.5rem;
+      animation: yearUp 520ms cubic-bezier(.2,.9,.25,1) both;
+      animation-delay: calc(6 * 120ms + 180ms); /* after letters */
+      text-shadow: 0 6px 14px rgba(2,6,23,0.45);
     }
+
+    @keyframes popUp {
+      0%   { transform: translateY(28px) scale(.94); opacity: 0; }
+      60%  { transform: translateY(-6px)  scale(1.06); opacity: 1; }
+      100% { transform: translateY(0)     scale(1); opacity: 1; }
+    }
+    @keyframes yearUp {
+      0%   { transform: translateY(34px) scale(.98); opacity: 0; }
+      60%  { transform: translateY(-4px)  scale(1.02); opacity: 1; }
+      100% { transform: translateY(0)     scale(1); opacity: 1; }
+    }
+
+    /* small, accessible label for screen readers while keeping the animated letters decorative */
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0);
+      white-space: nowrap; border: 0;
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .logo-letters .letter, .headline-year { animation: none !important; transform:none !important; opacity:1 !important; }
+    }
+
+    /* --- About section layout --- */
+    .about-grid { display:grid; grid-template-columns: 1fr; gap:1.5rem; align-items:center; }
+    .about-image {
+      width:100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.12);
+    }
+    @media(min-width: 768px) {
+      .about-grid { grid-template-columns: 1fr 420px; gap:2.5rem; }
+    }
+
+    /* make 'Scale' heading smaller */
+    .scale-title { font-size: 1.25rem; /* ~text-2xl */ font-weight:700; color: #0077b6; margin-bottom: 1.25rem; }
+
+    /* keep existing marquee/gallery CSS (copied from earlier) */
+    .h-gallery { position: relative; overflow: hidden; }
+    .h-track { display:flex; gap:1rem; align-items:center; }
+    .h-item { flex:0 0 auto; width:260px; height:160px; border-radius:0.75rem; overflow:hidden; box-shadow:0 8px 30px rgba(2,6,23,0.12); background:#e5e7eb; }
+    .h-item img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+    .marquee { --speed: 28s; width:100%; overflow:hidden; position:relative; padding:0.5rem 0.25rem; }
+    .marquee .track-anim { display:flex; gap:1rem; align-items:center; min-width:200%; will-change:transform; }
+    .track-anim > .h-track { display:flex; gap:1rem; align-items:center; }
+
+    @keyframes marquee-left { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+    @keyframes marquee-right{ from{transform:translateX(-50%);} to{transform:translateX(0);} }
+
+    .marquee.track-left .track-anim { animation: marquee-left var(--speed) linear infinite; }
+    .marquee.track-right .track-anim { animation: marquee-right var(--speed) linear infinite; }
+    .marquee:hover .track-anim { animation-play-state: paused; }
+
+    @media(max-width:768px){ .h-item{ width:200px; height:130px } .marquee{ --speed:20s } }
+    @media (prefers-reduced-motion: reduce) { .marquee .track-anim{ animation:none!important } }
+
   </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
@@ -81,16 +173,17 @@
       </button>
     </nav>
   </header>
+
   <script>
     // Mobile menu toggle
     const menuToggle = document.getElementById("menu-toggle");
     const menuClose = document.getElementById("menu-close");
     const mobileNav = document.getElementById("mobile-nav");
-    menuToggle.addEventListener("click", () => {
+    menuToggle?.addEventListener("click", () => {
       mobileNav.style.display = "flex";
       document.body.style.overflow = "hidden";
     });
-    menuClose.addEventListener("click", () => {
+    menuClose?.addEventListener("click", () => {
       mobileNav.style.display = "none";
       document.body.style.overflow = "";
     });
@@ -105,61 +198,75 @@
   <!-- Hero Section -->
   <section class="hero-bg w-full min-h-screen flex flex-col items-center justify-center relative pt-32 pb-20">
     <div class="absolute inset-0 bg-black/60"></div>
+
     <div class="relative z-10 text-center px-4">
-      <h1 class="text-white font-bold text-5xl md:text-7xl leading-tight drop-shadow-lg mb-2">Umang '25</h1>
+      <!-- accessible full text for screen readers -->
+      <span class="sr-only">Umang 2025</span>
+
+      <!-- Animated headline -->
+      <h1 class="mb-2">
+        <span class="headline-wrap">
+          <span class="logo-letters" aria-hidden="true">
+            <span class="letter" style="--i:1">U</span>
+            <span class="letter" style="--i:2">M</span>
+            <span class="letter" style="--i:3">A</span>
+            <span class="letter" style="--i:4">N</span>
+            <span class="letter" style="--i:5">G</span>
+          </span>
+          <span class="headline-year" aria-hidden="true">2025</span>
+        </span>
+      </h1>
+
       <p class="text-xl md:text-2xl font-light text-white mb-3">INTER-COLLEGIATE SPORTS TOURNAMENT</p>
-      <p class="text-2xl font-semibold text-white mt-6">31st Oct - 2nd Nov 2025</p>
-      <a
-        href="events.html"
-        class="mt-8 inline-block px-8 py-3 rounded-xl bg-primary text-white font-semibold shadow-lg hover:scale-105 hover:bg-[#003b5c] transition duration-300"
-        >View Events</a
-      >
+      <p class="text-2xl font-semibold text-white mt-6 invisible md:visible">31st Oct - 2nd Nov 2025</p>
+      <a href="events.html" class="mt-8 inline-block px-8 py-3 rounded-xl bg-primary text-white font-semibold shadow-lg hover:scale-105 hover:bg-[#003b5c] transition duration-300">View Events</a>
     </div>
   </section>
 
   <!-- About Section -->
   <section class="py-20 px-4 bg-white dark:bg-[#0a2240]">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-4 text-primary">About Umang</h2>
-      <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-        Umang, the flagship inter-collegiate sports tournament of the International Institute of Information Technology, Bangalore (IIIT-B), is one of the most dynamic sporting fests in Bangalore.
-        With <b>40–45 colleges</b>, <b>150+ teams</b>, and <b>3000+ participants</b>, the three-day fest begins with a grand opening ceremony and concludes with a prize distribution celebrating
-        champions of over 15 major sports, including Basketball, Football, Volleyball, Badminton, Tennis, Kabaddi, and more. For sponsors, Umang ensures high visibility, a strong youth connect,
-        and association with the prestigious IIIT-B brand.
-      </p>
-      <p class="mt-6 text-xl font-semibold text-gray-800 dark:text-white">Welcoming 3000+ participants to the fest.</p>
+    <div class="max-w-6xl mx-auto">
+      <div class="about-grid">
+        <!-- left: text (left aligned) -->
+        <div class="text-gray-700 dark:text-gray-300">
+          <h2 class="text-3xl font-bold mb-4 text-primary text-left">About Umang</h2>
+          <p class="text-lg leading-relaxed mb-4 text-left">
+            Umang, the flagship inter-collegiate sports tournament of the International Institute of Information Technology, Bangalore (IIIT-B), is one of the most dynamic sporting fests in Bangalore.
+            With <strong>40–45 colleges</strong>, <strong>150+ teams</strong>, and <strong>3000+ participants</strong>, the three-day fest begins with a grand opening ceremony and concludes with a prize distribution celebrating champions of over 15 major sports including Basketball, Football, Volleyball, Badminton, Tennis and Kabaddi.
+          </p>
+          <p class="text-left mt-4 text-xl font-semibold text-gray-800 dark:text-white">Welcoming 3000+ participants to the fest.</p>
+        </div>
+
+        <!-- right: image -->
+        <div class="hidden md:block">
+          <!-- Replace the src below with the real image you want to show beside the About text -->
+          <img src="assets/img/gallery/gallery1.png" alt="Umang crowd and stadium" class="about-image" />
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Scale Section -->
+  <!-- Scale Section (smaller title) -->
   <section class="py-20 bg-background-light dark:bg-background-dark">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-4xl font-bold text-primary mb-12 text-center">Scale of Umang</h2>
+      <h2 class="scale-title text-center mx-auto">Scale of Umang</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div
-          class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-        >
+        <div class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
           <span class="material-icons text-primary text-5xl mb-4">school</span>
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white">45+</h3>
           <p class="text-gray-600 dark:text-gray-400">Participating Colleges</p>
         </div>
-        <div
-          class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-        >
+        <div class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
           <span class="material-icons text-primary text-5xl mb-4">groups</span>
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white">150+</h3>
           <p class="text-gray-600 dark:text-gray-400">Teams</p>
         </div>
-        <div
-          class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-        >
+        <div class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
           <span class="material-icons text-primary text-5xl mb-4 flex items-center justify-center">emoji_events</span>
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white">3L+</h3>
           <p class="text-gray-600 dark:text-gray-400">In Prize Money</p>
         </div>
-        <div
-          class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
-        >
+        <div class="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg min-h-[230px] text-center transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
           <span class="material-icons text-primary text-5xl mb-4">person</span>
           <h3 class="text-2xl font-bold text-gray-900 dark:text-white">3000+</h3>
           <p class="text-gray-600 dark:text-gray-400">Individuals</p>
@@ -168,34 +275,52 @@
     </div>
   </section>
 
-  <!-- Gallery Section -->
+  <!-- Integrated Horizontal Scroller Gallery Section -->
   <section class="py-20 bg-background-light dark:bg-background-dark" id="gallery">
     <div class="max-w-6xl mx-auto px-4">
       <h2 class="text-4xl font-bold text-primary mb-12 text-center">Glimpses of Umang</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery1.png" alt="Football match in action" />
+
+      <!-- Row 1 -->
+      <div class="marquee track-left mb-6">
+        <div class="track-anim">
+          <div class="h-track">
+            <div class="h-item"><img src="assets/img/gallery/gallery1.png" alt="1" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery2.png" alt="2" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery3.png" alt="3" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery4.png" alt="4" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery5.png" alt="5" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery6.png" alt="6" loading="lazy"></div>
+          </div>
+          <div class="h-track">
+            <div class="h-item"><img src="assets/img/gallery/gallery1.png" alt="1" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery2.png" alt="2" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery3.png" alt="3" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery4.png" alt="4" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery5.png" alt="5" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery6.png" alt="6" loading="lazy"></div>
+          </div>
         </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery2.png" alt="E-sports event with crowd" />
-        </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery3.png" alt="Runners at the starting line" />
-        </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery4.png" alt="Basketball player dunking" />
-        </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery5.png" alt="Volleyball game intense moment" />
-        </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery6.png" alt="Badminton player serving" />
-        </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery7.jpg" alt="Tennis player hitting a forehand" />
-        </div>
-        <div class="aspect-[4/3] w-full rounded-xl overflow-hidden flex items-center justify-center bg-gray-200 dark:bg-gray-700">
-          <img class="object-cover w-full h-full" src="assets/img/gallery/gallery8.jpg" alt="Swimmer in a pool" />
+      </div>
+
+      <!-- Row 2 -->
+      <div class="marquee track-right">
+        <div class="track-anim">
+          <div class="h-track">
+            <div class="h-item"><img src="assets/img/gallery/gallery7.jpg" alt="7" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery8.jpg" alt="8" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery1.png" alt="1" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery2.png" alt="2" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery3.png" alt="3" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery4.png" alt="4" loading="lazy"></div>
+          </div>
+          <div class="h-track">
+            <div class="h-item"><img src="assets/img/gallery/gallery7.jpg" alt="7" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery8.jpg" alt="8" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery1.png" alt="1" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery2.png" alt="2" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery3.png" alt="3" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery4.png" alt="4" loading="lazy"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -216,50 +341,21 @@
         <div class="flex-1 text-center md:text-left">
           <h4 class="text-lg font-bold mb-2 text-primary">Contact Info</h4>
           <ul>
-            <li>
-              Bharat:
-              <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a>
-            </li>
-            <li>
-              Mithilesh:
-              <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a>
-            </li>
-            <li>
-              Tarun:
-              <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a>
-            </li>
-            <li>
-              Email:
-              <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a>
-            </li>
+            <li>Bharat: <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a></li>
+            <li>Mithilesh: <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a></li>
+            <li>Tarun: <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a></li>
+            <li>Email: <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a></li>
           </ul>
         </div>
         <div class="flex-1 text-left">
           <h4 class="text-lg font-bold mb-2 text-primary">Follow Us</h4>
           <ul class="flex flex-col gap-2 items-start">
-            <li>
-              <a
-                href="https://www.instagram.com/umangiiitb"
-                target="_blank"
-                class="hover:underline flex items-center gap-2"
-              >
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
-                <span>@umangiiitb</span>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.instagram.com/sportscommiiitb"
-                target="_blank"
-                class="hover:underline flex items-center gap-2"
-              >
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
-                <span>@sportscommiiitb</span>
-              </a>
-            </li>
+            <li><a href="https://www.instagram.com/umangiiitb" target="_blank" class="hover:underline flex items-center gap-2"><svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg><span>@umangiiitb</span></a></li>
+            <li><a href="https://www.instagram.com/sportscommiiitb" target="_blank" class="hover:underline flex items-center gap-2"><svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg><span>@sportscommiiitb</span></a></li>
           </ul>
         </div>
       </div>
+
       <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-300">
         &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
       </div>
