@@ -33,56 +33,33 @@
   </script>
 
   <style>
+    /* ===== Revised hero + button styles (responsive) ===== */
     .hero-bg {
-      background-image: url("https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1935&auto=format&fit=crop");
+      background-image: url("./assets/img/hero/Hero.png");
       background-size: cover;
-      background-position: center;
+      background-position: right;
       background-repeat: no-repeat;
-    }
-    .bg-white80 { background: rgba(255,255,255,1); }
-    .bg-black50 { background: rgba(0,0,0,1); }
-
-    /* --- Headline letter animation --- */
-    .headline-wrap { display:inline-flex; align-items: end; gap: 0.6rem; line-height: 1; }
-    .logo-letters { display:inline-flex; gap:0.45rem; font-weight:800; letter-spacing:0.02em; }
-    .logo-letters .letter {
-      display:inline-block;
-      transform: translateY(28px) scale(.94);
-      opacity: 0;
-      font-size: clamp(2.5rem, 6vw, 4.75rem); /* responsive size */
-      line-height: 1;
-      color: white;
-      -webkit-font-smoothing:antialiased;
-      backface-visibility: hidden;
-      will-change: transform, opacity;
-      animation: popUp 520ms cubic-bezier(.2,.9,.25,1) both;
-      /* each letter will set --i inline or via nth-child if you'd prefer */
-      animation-delay: calc(var(--i, 1) * 120ms);
-      text-shadow: 0 6px 18px rgba(2,6,23,0.55);
+      position: relative;
+      /* increased bottom space so content + button never overlap */
+      padding-bottom: 12rem;
+      /* more left padding so the hero content and button are away from the edge */
+      padding-left: 4rem;
     }
 
-    .headline-year {
-      display:inline-block;
-      transform: translateY(34px) scale(.98);
-      opacity: 0;
-      font-size: clamp(1.1rem, 2.6vw, 1.6rem);
-      font-weight:700;
-      color:white;
-      margin-left: 0.5rem;
-      animation: yearUp 520ms cubic-bezier(.2,.9,.25,1) both;
-      animation-delay: calc(6 * 120ms + 180ms); /* after letters */
-      text-shadow: 0 6px 14px rgba(2,6,23,0.45);
+    @media (max-width: 1024px) {
+      /* slightly smaller on tablets */
+      .hero-bg { padding-bottom: 10rem; padding-left: 3rem; }
     }
 
-    @keyframes popUp {
-      0%   { transform: translateY(28px) scale(.94); opacity: 0; }
-      60%  { transform: translateY(-6px)  scale(1.06); opacity: 1; }
-      100% { transform: translateY(0)     scale(1); opacity: 1; }
-    }
-    @keyframes yearUp {
-      0%   { transform: translateY(34px) scale(.98); opacity: 0; }
-      60%  { transform: translateY(-4px)  scale(1.02); opacity: 1; }
-      100% { transform: translateY(0)     scale(1); opacity: 1; }
+    @media (max-width: 767px) {
+      .hero-bg {
+        background-image: url("./assets/img/hero/MobileHero.png");
+        background-position: right;
+
+        /* mobile still has extra space but less than desktop */
+        padding-bottom: 8rem;
+        padding-left: 1.8rem;
+      }
     }
 
     /* small, accessible label for screen readers while keeping the animated letters decorative */
@@ -94,10 +71,117 @@
       white-space: nowrap; border: 0;
     }
 
-    /* Respect reduced motion */
+    .headline-wrap { display:inline-flex; align-items: end; gap: 0.6rem; line-height: 1; }
+    .logo-letters { display:inline-flex; gap:0.45rem; font-weight:800; letter-spacing:0.02em; font-size:5rem;  }
+    .logo-letters .letter {
+      display:inline-block;
+      transform: translateY(28px) scale(.94);
+      opacity: 0;
+      line-height: 1;
+      color: white;
+      -webkit-font-smoothing:antialiased;
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+      animation: popUp 520ms cubic-bezier(.2,.9,.25,1) both;
+      animation-delay: calc(var(--i, 1) * 120ms);
+      text-shadow: 0 6px 18px rgba(2,6,23,0.55);
+    }
+    .headline-year {
+      display:inline-block;
+      transform: translateY(34px) scale(.98);
+      opacity: 0;
+      font-size: 5rem;
+      font-weight:700;
+      color:white;
+      margin-left: 0.5rem;
+      animation: yearUp 520ms cubic-bezier(.2,.9,.25,1) both;
+      animation-delay: calc(6 * 120ms + 180ms);
+      text-shadow: 0 6px 14px rgba(2,6,23,0.45);
+      line-height: 1;
+    }
+    @keyframes popUp {
+      0%   { transform: translateY(28px) scale(.94); opacity: 0; }
+      60%  { transform: translateY(-6px)  scale(1.06); opacity: 1; }
+      100% { transform: translateY(0)     scale(1); opacity: 1; }
+    }
+    @keyframes yearUp {
+      0%   { transform: translateY(34px) scale(.98); opacity: 0; }
+      60%  { transform: translateY(-4px)  scale(1.02); opacity: 1; }
+      100% { transform: translateY(0)     scale(1); opacity: 1; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .logo-letters .letter, .headline-year { animation: none !important; transform:none !important; opacity:1 !important; }
     }
+
+    .hero-subtext {
+      font-size: 0.9rem;
+      color: white;
+      max-width: 28rem;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* Primary call-to-action button */
+    .hero-btn {
+      background-color: #FFE045;
+      color: #061C4D;
+      font-weight: 700;
+      padding: 0.75rem 2rem;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 20px rgba(255 214 0 / 0.4);
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+
+      /* absolute on larger screens so it visually sits near the bottom-left,
+         but with enough space so it doesn't overlap the text */
+      position: absolute;
+      z-index: 20;     /* above overlay */
+
+      /* accessibility: focus outline */
+      outline: none;
+    }
+
+    .hero-btn:focus {
+      box-shadow: 0 0 0 4px rgba(255, 214, 0, 0.25);
+    }
+
+    .hero-btn:hover { background-color: #f7df6e; }
+
+    @media (max-width: 1024px) {
+      /* slightly adjust for medium screens */
+      .hero-btn { left: 3rem; bottom: 2rem; }
+    }
+
+    @media (max-width: 767px) {
+      /* on mobile keep the button in normal flow so it stacks after text and never overlaps */
+      .hero-btn {
+        position: static;
+        display: inline-block;
+        margin-top: 1.5rem;
+        box-shadow: none;
+        left: auto;
+        bottom: auto;
+        z-index: 10;
+        /* make it a bit wider on small screens for tap targets */
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+
+      /* ensure hero text doesn't extend too far under the background image on very small screens */
+      .hero-subtext { max-width: 100%; margin-bottom: 1.25rem; }
+      .headline-wrap, .headline-year { font-size: clamp(2.25rem, 6vw, 4.5rem); }
+      .logo-letters .letter { font-size: clamp(2rem, 6vw, 4.5rem); transform:none; opacity:1; }
+    }
+
+    /* Small visual polish: ensure overlay sits behind content */
+    .hero-bg > .absolute.inset-0 { z-index: 5; }
+
+    /* --- retained styling from original file (about, gallery, marquee, scale, etc.) --- */
+    .bg-white80 { background: rgba(255,255,255,1); }
+    .bg-black50 { background: rgba(0,0,0,1); }
 
     /* --- About section layout --- */
     .about-grid { display:grid; grid-template-columns: 1fr; gap:1.5rem; align-items:center; }
@@ -142,8 +226,8 @@
   <header class="bg-white80 dark:bg-black50 fixed top-0 left-0 right-0 z-50 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
-        <img src="assets/img/logo/loader.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3" />
-        <span class="text-3xl font-bold text-primary">Umang '25</span>
+        <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3" />
+        <span class="text-3xl font-bold text-primary">Umang 2025</span>
       </a>
       <nav class="hidden md:flex space-x-10 font-semibold">
         <a href="index.html" class="hover:text-primary transition">Home</a>
@@ -174,36 +258,18 @@
     </nav>
   </header>
 
-  <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById("menu-toggle");
-    const menuClose = document.getElementById("menu-close");
-    const mobileNav = document.getElementById("mobile-nav");
-    menuToggle?.addEventListener("click", () => {
-      mobileNav.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    });
-    menuClose?.addEventListener("click", () => {
-      mobileNav.style.display = "none";
-      document.body.style.overflow = "";
-    });
-    // Dark mode toggle
-    document.getElementById("dark-toggle").onclick = () => {
-      document.documentElement.classList.toggle("dark");
-      document.getElementById("mobile-nav").style.display = "none";
-      document.body.style.overflow = "";
-    };
-  </script>
+  <!-- NOTE: removed duplicate/early script that declared menuToggle/menuClose/mobileNav -->
 
-  <!-- Hero Section -->
-  <section class="hero-bg w-full min-h-screen flex flex-col items-center justify-center relative pt-32 pb-20">
+  <!-- ===== Replaced Hero Section (from the provided modified hero) ===== -->
+  <section class="hero-bg w-full min-h-screen flex flex-col justify-center relative pt-32 pb-20 text-white">
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <div class="relative z-10 text-center px-4">
-      <!-- accessible full text for screen readers -->
-      <span class="sr-only">Umang 2025</span>
+    <div class="relative z-10 max-w-7xl px-4 text-left">
+      <p class="uppercase text-sm font-semibold tracking-wider mb-4" style="color:white;">
+        INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BANGALORE
+        <span style="color:#FFB112;">PRESENTS</span>
+      </p>
 
-      <!-- Animated headline -->
       <h1 class="mb-2">
         <span class="headline-wrap">
           <span class="logo-letters" aria-hidden="true">
@@ -213,15 +279,23 @@
             <span class="letter" style="--i:4">N</span>
             <span class="letter" style="--i:5">G</span>
           </span>
-          <span class="headline-year" aria-hidden="true">2025</span>
         </span>
       </h1>
 
-      <p class="text-xl md:text-2xl font-light text-white mb-3">INTER-COLLEGIATE SPORTS TOURNAMENT</p>
-      <p class="text-2xl font-semibold text-white mt-6 invisible md:visible">31st Oct - 2nd Nov 2025</p>
-      <a href="events.html" class="mt-8 inline-block px-8 py-3 rounded-xl bg-primary text-white font-semibold shadow-lg hover:scale-105 hover:bg-[#003b5c] transition duration-300">View Events</a>
+      <h1 class="mb-6">
+        <span class="headline-year" aria-hidden="true">2025</span>
+      </h1>
+
+      <p class="hero-subtext">
+        Join the biggest celebration of sports, talent, and unity at IIIT-Bangalore. Where champions are made and memories are created!
+      </p>
+
+      <a href="events.html" class="hero-btn" aria-label="Register for Umang 2025">
+        Register Here!
+      </a>
     </div>
   </section>
+  <!-- ===== End replaced hero ===== -->
 
   <!-- About Section -->
   <section class="py-20 px-4 bg-white dark:bg-[#0a2240]">
@@ -350,8 +424,23 @@
         <div class="flex-1 text-left">
           <h4 class="text-lg font-bold mb-2 text-primary">Follow Us</h4>
           <ul class="flex flex-col gap-2 items-start">
-            <li><a href="https://www.instagram.com/umangiiitb" target="_blank" class="hover:underline flex items-center gap-2"><svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg><span>@umangiiitb</span></a></li>
-            <li><a href="https://www.instagram.com/sportscommiiitb" target="_blank" class="hover:underline flex items-center gap-2"><svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg><span>@sportscommiiitb</span></a></li>
+            <li>
+              <a href="https://www.instagram.com/umangiiitb" target="_blank" class="hover:underline flex items-center gap-2">
+                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                </svg>
+                <span>@umangiiitb</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.instagram.com/sportscommiiitb" target="_blank" class="hover:underline flex items-center gap-2">
+                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                </svg>
+                <span>@sportscommiiitb</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -361,5 +450,41 @@
       </div>
     </div>
   </footer>
+
+  <!-- Minimal JS to toggle mobile nav (optional) -->
+  <script>
+    (function () {
+      if (window.__umangMobileNavInit) return;
+      window.__umangMobileNavInit = true;
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const menuClose = document.getElementById('menu-close');
+        const darkToggle = document.getElementById('dark-toggle');
+
+        if (menuToggle && mobileNav) {
+          menuToggle.addEventListener('click', () => {
+            mobileNav.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          });
+        }
+        if (menuClose && mobileNav) {
+          menuClose.addEventListener('click', () => {
+            mobileNav.style.display = 'none';
+            document.body.style.overflow = '';
+          });
+        }
+
+        if (darkToggle) {
+          darkToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (mobileNav) mobileNav.style.display = 'none';
+            document.body.style.overflow = '';
+          });
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
