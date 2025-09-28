@@ -47,7 +47,7 @@
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<body class="bg-background-light /* dark:bg-background-dark */ font-display text-gray-800 /* dark:text-gray-200 */">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -111,25 +111,25 @@
 </style>
 
 <!-- Header -->
-<header class="bg-white/95 dark:bg-black/80 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
+<header class="bg-white/95 /* dark:bg-black/80 */ fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3 object-contain" />
         <span class="text-2xl md:text-3xl font-bold text-primary">Umang '25</span>
       </a>
-      <nav class="hidden md:flex space-x-8 font-semibold">
-        <a href="index.html" class="text-gray-700 dark:text-white hover:text-primary transition">Home</a>
-        <a href="events.html" class="text-gray-700 dark:text-white hover:text-primary transition">Events</a>
-        <a href="team.html" class="text-gray-700 dark:text-white hover:text-primary transition">Team</a>
-        <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary transition">Contact</a>
-      </nav>
       <div class="flex items-center gap-3">
+        <nav class="hidden md:flex space-x-8 font-semibold mr-4">
+          <a href="index.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Home</a>
+          <a href="events.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Events</a>
+          <a href="team.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Team</a>
+          <a href="contact.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Contact</a>
+        </nav>
         <button id="menu-toggle" class="md:hidden p-2">
           <span class="material-icons text-3xl text-primary">menu</span>
         </button>
-        <button id="desktop-dark-toggle" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+        <!-- <button id="desktop-dark-toggle" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
           <span id="desktop-toggle-text">Toggle Dark</span>
-        </button>
+        </button> -->
       </div>
     </div>
     <!-- Mobile Nav -->

@@ -50,7 +50,7 @@
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+<body class="bg-background-light /* dark:bg-background-dark */ font-display text-gray-800 /* dark:text-gray-200 */">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -84,10 +84,10 @@
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .dark .glass-effect {
+    /* .dark .glass-effect {
         background: rgba(0, 0, 0, 0.3);
         border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    } */
     .gradient-text {
         background: linear-gradient(135deg, #0077b6, #023e8a);
         -webkit-background-clip: text;
@@ -108,45 +108,45 @@
         transform: scale(1.05) translateY(-5px);
         box-shadow: 0 20px 40px rgba(0, 119, 182, 0.3);
     }
-    .dark .hover-scale:hover {
+    /* .dark .hover-scale:hover {
         box-shadow: 0 20px 40px rgba(0, 119, 182, 0.5);
-    }
+    } */
 </style>
 
 <!-- Header -->
-<header class="bg-white/95 dark:bg-black/80 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
+<header class="bg-white/95 /* dark:bg-black/80 */ fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3 object-contain" />
         <span class="text-2xl md:text-3xl font-bold text-primary">Umang '25</span>
       </a>
-      <nav class="hidden md:flex space-x-8 font-semibold">
-        <a href="index.html" class="text-gray-700 dark:text-white hover:text-primary transition">Home</a>
-        <a href="events.html" class="text-gray-700 dark:text-white hover:text-primary transition">Events</a>
-        <a href="team.html" class="text-gray-700 dark:text-white hover:text-primary transition">Team</a>
-        <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary transition">Contact</a>
-      </nav>
       <div class="flex items-center gap-3">
+        <nav class="hidden md:flex space-x-8 font-semibold mr-4">
+          <a href="index.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Home</a>
+          <a href="events.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Events</a>
+          <a href="team.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Team</a>
+          <a href="contact.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Contact</a>
+        </nav>
         <button id="menu-toggle" class="md:hidden p-2">
           <span class="material-icons text-3xl text-primary">menu</span>
         </button>
-        <button id="desktop-dark-toggle" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+        <!-- <button id="desktop-dark-toggle" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
           <span id="desktop-toggle-text">Toggle Dark</span>
-        </button>
+        </button> -->
       </div>
     </div>
     <!-- Mobile Nav -->
-    <nav id="mobile-nav" class="fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300" style="display: none;">
-      <button id="menu-close" class="absolute top-5 right-8 text-gray-700 dark:text-gray-200">
+    <nav id="mobile-nav" class="fixed top-0 left-0 w-full h-screen bg-white /* dark:bg-black */ z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300" style="display: none;">
+      <button id="menu-close" class="absolute top-5 right-8 text-gray-700 /* dark:text-gray-200 */">
         <span class="material-icons text-3xl">close</span>
       </button>
-      <a href="index.html" class="text-gray-700 dark:text-white hover:text-primary transition">Home</a>
-      <a href="events.html" class="text-gray-700 dark:text-white hover:text-primary transition">Events</a>
-      <a href="team.html" class="text-gray-700 dark:text-white hover:text-primary transition">Team</a>
-      <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary transition">Contact</a>
-      <button id="mobile-dark-toggle" class="mt-8 px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+      <a href="index.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Home</a>
+      <a href="events.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Events</a>
+      <a href="team.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Team</a>
+      <a href="contact.html" class="text-gray-700 /* dark:text-white */ hover:text-primary transition">Contact</a>
+      <!-- <button id="mobile-dark-toggle" class="mt-8 px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
         <span id="mobile-toggle-text">Toggle Dark Mode</span>
-      </button>
+      </button> -->
     </nav>
 </header>
 
@@ -167,7 +167,7 @@
     });
     
     // Dark mode toggle functions
-    function toggleDarkMode() {
+    /* function toggleDarkMode() {
       document.documentElement.classList.toggle("dark");
       const isDark = document.documentElement.classList.contains("dark");
       
@@ -199,7 +199,7 @@
       const mobileText = document.getElementById("mobile-toggle-text");
       if (desktopText) desktopText.textContent = 'Toggle Light';
       if (mobileText) mobileText.textContent = 'Toggle Light Mode';
-    }
+    } */
 </script>
 
 <!-- Beautiful Hero Section -->
@@ -237,7 +237,7 @@
     <div class="absolute top-1/2 left-20 w-16 h-16 bg-white/5 rounded-full blur-lg floating-animation" style="animation-delay: 1.5s;"></div>
 </section>
 <!-- Beautiful Main Content Section -->
-<section class="py-20 px-4 bg-background-light dark:bg-background-dark relative overflow-hidden">
+<section class="py-20 px-4 bg-background-light /* dark:bg-background-dark */ relative overflow-hidden">
     <!-- Background Elements -->
     <div class="absolute top-0 left-0 w-full h-full opacity-5 dark:opacity-10">
         <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
@@ -253,17 +253,17 @@
                     <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
                         🏆 Tournament Rules
                     </span>
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 /* dark:text-white */ mb-6">
                         General Rules & Guidelines
                     </h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                    <p class="text-lg text-gray-600 /* dark:text-gray-300 */">
                         Everything you need to know to compete in Basketball at Umang '25
                     </p>
                 </div>
 
                 <!-- Rules List -->
                 <div class="glass-effect rounded-2xl p-8 hover-scale">
-                    <ul class="space-y-4 text-gray-700 dark:text-gray-300">
+                    <ul class="space-y-4 text-gray-700 /* dark:text-gray-300 */">
                         <li class="flex items-start space-x-3">
                             <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
                             <span>Participants must produce bona fide certificates and institute ID Cards for verification.</span>
@@ -320,8 +320,8 @@
                     <h3 class="text-2xl font-bold text-primary mb-6 text-center lg:text-left">
                         🚀 Register Your Team
                     </h3>
-                    <div class="mb-4 text-gray-600 dark:text-gray-300 text-center lg:text-left">
-                        <p class="text-lg font-medium text-gray-700 dark:text-gray-300">Choose your basketball category and register your team:</p>
+                    <div class="mb-4 text-gray-600 /* dark:text-gray-300 */ text-center lg:text-left">
+                        <p class="text-lg font-medium text-gray-700 /* dark:text-gray-300 */">Choose your basketball category and register your team:</p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <a href="https://forms.gle/NBMHStigAMsAyw14A" 
@@ -375,15 +375,15 @@
                         <!-- Prize Pool Card -->
                         <div class="glass-effect rounded-xl p-8 text-center hover-scale h-40 flex flex-col justify-center">
                             <div class="text-4xl font-bold gradient-text mb-3">₹60K</div>
-                            <div class="text-lg font-semibold text-gray-600 dark:text-gray-400">Prize Pool</div>
-                            <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">Exciting rewards for winners and runners-up</p>
+                            <div class="text-lg font-semibold text-gray-600 /* dark:text-gray-400 */">Prize Pool</div>
+                            <p class="text-sm text-gray-500 /* dark:text-gray-500 */ mt-2">Exciting rewards for winners and runners-up</p>
                         </div>
                         
                         <!-- Complete Rules Card -->
                         <div class="glass-effect rounded-xl p-8 text-center hover-scale h-40 flex flex-col justify-center">
                             <div class="mb-4">
                                 <span class="material-icons text-primary text-3xl mb-2 block">description</span>
-                                <div class="text-lg font-semibold text-gray-600 dark:text-gray-400">Tournament Rules</div>
+                                <div class="text-lg font-semibold text-gray-600 /* dark:text-gray-400 */">Tournament Rules</div>
                             </div>
                             <a href="https://docs.google.com/document/d/1ocV4d3CyINPgbpMGxwtjb9lcmkBSEzF0G0nomzVM4Kw/edit?usp=sharing" 
                                target="_blank"
@@ -403,7 +403,7 @@
                             <div class="glass-effect rounded-lg p-6 hover:bg-primary/5 transition-all duration-300">
                                 <div class="flex items-center justify-center mb-3">
                                     <span class="material-icons text-primary text-2xl mr-2">person</span>
-                                    <p class="text-xl font-semibold text-gray-800 dark:text-white">Contact Person 1</p>
+                                    <p class="text-xl font-semibold text-gray-800 /* dark:text-white */">Contact Person 1</p>
                                 </div>
                                 <div class="flex items-center justify-center">
                                     <span class="material-icons text-primary text-lg mr-2">phone</span>
@@ -415,7 +415,7 @@
                             <div class="glass-effect rounded-lg p-6 hover:bg-primary/5 transition-all duration-300">
                                 <div class="flex items-center justify-center mb-3">
                                     <span class="material-icons text-primary text-2xl mr-2">person</span>
-                                    <p class="text-xl font-semibold text-gray-800 dark:text-white">Contact Person 2</p>
+                                    <p class="text-xl font-semibold text-gray-800 /* dark:text-white */">Contact Person 2</p>
                                 </div>
                                 <div class="flex items-center justify-center">
                                     <span class="material-icons text-primary text-lg mr-2">phone</span>
@@ -450,7 +450,7 @@
     </main>
 
     <!-- Beautiful Footer -->
-    <footer class="bg-gray-800 dark:bg-black text-white py-16 relative overflow-hidden">
+    <footer class="bg-gray-800 /* dark:bg-black */ text-white py-16 relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute inset-0 opacity-5">
             <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
