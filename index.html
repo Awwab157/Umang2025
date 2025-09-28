@@ -37,28 +37,23 @@
     .hero-bg {
       background-image: url("./assets/img/hero/Hero.png");
       background-size: cover;
-      background-position: right;
+      background-position: right center;
       background-repeat: no-repeat;
       position: relative;
-      /* increased bottom space so content + button never overlap */
-      padding-bottom: 12rem;
-      /* more left padding so the hero content and button are away from the edge */
-      padding-left: 4rem;
+      min-height: 100vh;
     }
 
     @media (max-width: 1024px) {
-      /* slightly smaller on tablets */
-      .hero-bg { padding-bottom: 10rem; padding-left: 3rem; }
+      .hero-bg {
+        background-position: center;
+      }
     }
 
     @media (max-width: 767px) {
       .hero-bg {
         background-image: url("./assets/img/hero/MobileHero.png");
-        background-position: right;
-
-        /* mobile still has extra space but less than desktop */
-        padding-bottom: 8rem;
-        padding-left: 1.8rem;
+        background-position: center;
+        min-height: 100vh;
       }
     }
 
@@ -72,7 +67,13 @@
     }
 
     .headline-wrap { display:inline-flex; align-items: end; gap: 0.6rem; line-height: 1; }
-    .logo-letters { display:inline-flex; gap:0.45rem; font-weight:800; letter-spacing:0.02em; font-size:5rem;  }
+    .logo-letters { 
+      display:inline-flex; 
+      gap:0.45rem; 
+      font-weight:800; 
+      letter-spacing:0.02em; 
+      font-size: clamp(2.5rem, 8vw, 6rem);
+    }
     .logo-letters .letter {
       display:inline-block;
       transform: translateY(28px) scale(.94);
@@ -90,7 +91,7 @@
       display:inline-block;
       transform: translateY(34px) scale(.98);
       opacity: 0;
-      font-size: 5rem;
+      font-size: clamp(2.5rem, 8vw, 6rem);
       font-weight:700;
       color:white;
       margin-left: 0.5rem;
@@ -98,6 +99,18 @@
       animation-delay: calc(6 * 120ms + 180ms);
       text-shadow: 0 6px 14px rgba(2,6,23,0.45);
       line-height: 1;
+    }
+    
+    @media (max-width: 640px) {
+      .headline-wrap { gap: 0.3rem; }
+      .logo-letters { gap: 0.2rem; }
+      .headline-year { margin-left: 0.25rem; }
+    }
+    
+    @media (min-width: 1024px) {
+      .headline-wrap { gap: 0.8rem; }
+      .logo-letters { gap: 0.6rem; }
+      .headline-year { margin-left: 0.75rem; }
     }
     @keyframes popUp {
       0%   { transform: translateY(28px) scale(.94); opacity: 0; }
@@ -115,12 +128,26 @@
     }
 
     .hero-subtext {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: white;
-      max-width: 28rem;
-      margin-bottom: 3rem;
+      max-width: 35rem;
       font-weight: 300;
-      line-height: 1.4;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 640px) {
+      .hero-subtext {
+        font-size: 0.85rem;
+        max-width: 100%;
+        line-height: 1.4;
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-subtext {
+        font-size: 1.1rem;
+        max-width: 40rem;
+      }
     }
 
     /* Primary call-to-action button */
@@ -132,15 +159,9 @@
       border-radius: 1rem;
       font-size: 1.1rem;
       box-shadow: 0 6px 20px rgba(255 214 0 / 0.4);
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
       text-decoration: none;
-
-      /* absolute on larger screens so it visually sits near the bottom-left,
-         but with enough space so it doesn't overlap the text */
-      position: absolute;
-      z-index: 20;     /* above overlay */
-
-      /* accessibility: focus outline */
+      z-index: 20;
       outline: none;
     }
 
@@ -148,32 +169,28 @@
       box-shadow: 0 0 0 4px rgba(255, 214, 0, 0.25);
     }
 
-    .hero-btn:hover { background-color: #f7df6e; }
-
-    @media (max-width: 1024px) {
-      /* slightly adjust for medium screens */
-      .hero-btn { left: 3rem; bottom: 2rem; }
+    .hero-btn:hover { 
+      background-color: #f7df6e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255 214 0 / 0.5);
     }
 
-    @media (max-width: 767px) {
-      /* on mobile keep the button in normal flow so it stacks after text and never overlaps */
+    @media (max-width: 640px) {
       .hero-btn {
-        position: static;
-        display: inline-block;
-        margin-top: 1.5rem;
-        box-shadow: none;
-        left: auto;
-        bottom: auto;
-        z-index: 10;
-        /* make it a bit wider on small screens for tap targets */
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
       }
-
-      /* ensure hero text doesn't extend too far under the background image on very small screens */
-      .hero-subtext { max-width: 100%; margin-bottom: 1.25rem; }
-      .headline-wrap, .headline-year { font-size: clamp(2.25rem, 6vw, 4.5rem); }
-      .logo-letters .letter { font-size: clamp(2rem, 6vw, 4.5rem); transform:none; opacity:1; }
+    }
+    
+    @media (min-width: 1024px) {
+      .hero-btn {
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+      }
     }
 
     /* Small visual polish: ensure overlay sits behind content */
@@ -227,7 +244,7 @@
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
         <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3" />
-        <span class="text-3xl font-bold text-primary">Umang 2025</span>
+        <span class="text-3xl font-bold text-primary">Umang '25</span>
       </a>
       <nav class="hidden md:flex space-x-10 font-semibold">
         <a href="index.html" class="hover:text-primary transition">Home</a>
@@ -261,38 +278,40 @@
   <!-- NOTE: removed duplicate/early script that declared menuToggle/menuClose/mobileNav -->
 
   <!-- ===== Replaced Hero Section (from the provided modified hero) ===== -->
-  <section class="hero-bg w-full min-h-screen flex flex-col justify-center relative pt-32 pb-20 text-white">
+  <section class="hero-bg w-full min-h-screen flex items-center relative pt-20 sm:pt-24 pb-20 text-white">
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <div class="relative z-10 max-w-7xl px-4 text-left">
-      <p class="uppercase text-sm font-semibold tracking-wider mb-4" style="color:white;">
-        INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BANGALORE
-        <span style="color:#FFB112;">PRESENTS</span>
-      </p>
+    <div class="relative z-10 w-full px-4 sm:px-6 lg:px-16 xl:px-20 text-left h-full flex flex-col justify-center">
+      <div class="max-w-4xl lg:max-w-none">
+        <p class="uppercase text-xs sm:text-sm font-semibold tracking-wider mb-3 sm:mb-4 leading-tight" style="color:white;">
+          INTERNATIONAL INSTITUTE OF INFORMATION TECHNOLOGY BANGALORE
+          <span class="block sm:inline" style="color:#FFB112;">PRESENTS</span>
+        </p>
 
-      <h1 class="mb-2">
-        <span class="headline-wrap">
-          <span class="logo-letters" aria-hidden="true">
-            <span class="letter" style="--i:1">U</span>
-            <span class="letter" style="--i:2">M</span>
-            <span class="letter" style="--i:3">A</span>
-            <span class="letter" style="--i:4">N</span>
-            <span class="letter" style="--i:5">G</span>
+        <h1 class="mb-2">
+          <span class="headline-wrap">
+            <span class="logo-letters" aria-hidden="true">
+              <span class="letter" style="--i:1">U</span>
+              <span class="letter" style="--i:2">M</span>
+              <span class="letter" style="--i:3">A</span>
+              <span class="letter" style="--i:4">N</span>
+              <span class="letter" style="--i:5">G</span>
+            </span>
           </span>
-        </span>
-      </h1>
+        </h1>
 
-      <h1 class="mb-6">
-        <span class="headline-year" aria-hidden="true">2025</span>
-      </h1>
+        <h1 class="mb-4 sm:mb-6">
+          <span class="headline-year" aria-hidden="true">2025</span>
+        </h1>
 
-      <p class="hero-subtext">
-        Join the biggest celebration of sports, talent, and unity at IIIT-Bangalore. Where champions are made and memories are created!
-      </p>
+        <p class="hero-subtext mb-6 sm:mb-8">
+          Join the biggest celebration of sports, talent, and unity at IIIT-Bangalore. Where champions are made and memories are created!
+        </p>
 
-      <a href="events.html" class="hero-btn" aria-label="Register for Umang 2025">
-        Register Here!
-      </a>
+        <a href="events.html" class="hero-btn inline-block" aria-label="Register for Umang 2025">
+          Register Here!
+        </a>
+      </div>
     </div>
   </section>
   <!-- ===== End replaced hero ===== -->
@@ -313,8 +332,7 @@
 
         <!-- right: image -->
         <div class="hidden md:block">
-          <!-- Replace the src below with the real image you want to show beside the About text -->
-          <img src="assets/img/gallery/gallery1.png" alt="Umang crowd and stadium" class="about-image" />
+          <img src="assets/img/gallery/Mascot.jpg" alt="Milano" class="about-image" />
         </div>
       </div>
     </div>
@@ -382,18 +400,18 @@
           <div class="h-track">
             <div class="h-item"><img src="assets/img/gallery/gallery7.jpg" alt="7" loading="lazy"></div>
             <div class="h-item"><img src="assets/img/gallery/gallery8.jpg" alt="8" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery1.png" alt="1" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery2.png" alt="2" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery3.png" alt="3" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery4.png" alt="4" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery9.jpg" alt="9" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery10.jpg" alt="10" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery11.jpg" alt="11" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery12.jpg" alt="12" loading="lazy"></div>
           </div>
           <div class="h-track">
             <div class="h-item"><img src="assets/img/gallery/gallery7.jpg" alt="7" loading="lazy"></div>
             <div class="h-item"><img src="assets/img/gallery/gallery8.jpg" alt="8" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery1.png" alt="1" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery2.png" alt="2" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery3.png" alt="3" loading="lazy"></div>
-            <div class="h-item"><img src="assets/img/gallery/gallery4.png" alt="4" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery9.jpg" alt="9" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery10.jpg" alt="10" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery11.jpg" alt="11" loading="lazy"></div>
+            <div class="h-item"><img src="assets/img/gallery/gallery12.jpg" alt="12" loading="lazy"></div>
           </div>
         </div>
       </div>
