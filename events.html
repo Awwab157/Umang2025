@@ -20,15 +20,9 @@
       theme: {
         extend: {
           colors: {
-            /* primary = the brand accent used for headings / links */
-            primary: "#E99AD7",         /* soft rose-pink accent */
-
-            /* backgrounds: deep, layered purples for the site grading */
-            "background-light": "#1b0b2e",   /* very dark purple (light-mode base token override) */
-            "background-dark": "#120421",    /* deepest purple for dark mode base */
-
-            /* subtle secondary tint used for dot-patterns / small accents */
-            accent: "#C58BF0"           /* lavender-ish highlight */
+            primary: "#0077b6",
+            "background-light": "#f0f8ff",
+            "background-dark": "#023e8a",
           },
           fontFamily: {
             display: ["Poppins", "sans-serif"],
@@ -42,11 +36,44 @@
   </script>
 
   <style>
-    .hero-pattern {
-      background-image: url("assets/img/hero/hero2.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    .hero-bg {
+        background: linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bg-white80 {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    .bg-black50 {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .gradient-text {
+        background: linear-gradient(135deg, #0077b6, #023e8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .floating-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    .hover-scale {
+        transition: all 0.3s ease;
+    }
+    .hover-scale:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 119, 182, 0.3);
     }
 
     /* small visual tweaks for event cards */
@@ -57,46 +84,19 @@
       transform: scale(1.05);
     }
 
-    /* richer graded overlay for hero */
-    /* targets the existing overlay div: <div class="absolute inset-0 bg-black/45"></div> */
-    .hero-pattern .inset-0 {
-      background: linear-gradient(135deg, rgba(107,36,127,0.85) 0%, rgba(29,8,48,0.7) 60%);
+    /* Card background matching the blue theme */
+    .event-card-bg { 
+      background: linear-gradient(
+        180deg,
+        rgba(0, 119, 182, 0.15) 0%,
+        rgba(2, 62, 138, 0.25) 100%
+      );
+      border: 1px solid rgba(0, 119, 182, 0.2);
+      backdrop-filter: blur(10px);
     }
-
-    /* footer subtle top gradient so footer blends with page */
-    footer {
-      background: linear-gradient(180deg, rgba(18,4,33,0.95) 0%, rgba(9,3,22,0.98) 100%);
-    }
-
-    /* small tweak to hero heading contrast (uses same token names) */
-    .hero-pattern h1, .hero-pattern p {
-      color: rgba(255,255,255,0.98);
-    }
-
-    /* Card background matching the site grading (distinct from page bg)
-       — slightly lighter / more textured so cards stand out while staying in the same palette */
-.event-card-bg { 
-  background: linear-gradient(
-    180deg,
-    rgba(74, 47, 178, 0.95) 0%,   /* top: lighter purple */
-    rgba(52, 28, 122, 0.95) 10%  /* bottom: darker purple */
-  );
-  border: 1px solid rgba(196, 139, 240, 0.15); /* made border slightly more visible */
-}
-    /* optional subtle lift on hover for cards */
     .event-card-bg:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-    }
-
-
- 
-    #mobile-nav {
-    background: linear-gradient(
-      180deg,
-      rgba(33, 17, 51, 0.98) 0%,      
-      rgba(18, 9, 36, 0.98) 100%     
-    );
-    color: #EAE2FF; 
+      box-shadow: 0 10px 30px rgba(0, 119, 182, 0.3);
+      transform: translateY(-5px);
     }
   
 /* === Preloader Animation === */
@@ -105,7 +105,7 @@
   width: 100%;
   height: 100%;
   z-index: 999999;
-  background: white; /* matches site background */
+  background: #f0f8ff;
   top: 0;
   left: 0;
   display: flex;
@@ -121,8 +121,8 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  border: 3px solid rgba(255,255,255,0.15);
-  border-top-color: #E99AD7;  /* pink spin color */
+  border: 3px solid rgba(0, 119, 182, 0.15);
+  border-top-color: #0077b6;
   animation: spinner 1s linear infinite;
   margin: 0 auto;
 }
@@ -140,31 +140,9 @@
   }
 }
 
-    /* #mobile-nav a {
-    display: block;
-    padding: 0.75rem 1.25rem;
-    font-weight: 500;
-    color: #E0CFFF;                 
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    } */
-
-    /* #mobile-nav a:hover,
-    #mobile-nav a:focus {
-    background: rgba(74, 47, 178, 0.25); 
-    color: #C792FF;                      
-    } */
-
-    #mobile-nav a.active {
-    background: rgba(74, 47, 178, 0.4);
-    color: "#E99AD7";
-    font-weight: 600;
-    }
-
   </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-200">
+<body class="bg-background-light font-display text-gray-800">
   
 <!-- Preloader Start -->
 <div id="preloader-active">
@@ -180,53 +158,41 @@
 </div>
 
 <!-- Preloader End -->
-  <!-- Header -->
-  <!-- Adjusted header height/alignment to match your top-strip screenshot -->
-<header class="bg-black fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm h-14">
-  <div class="max-w-7xl mx-auto px-4 h-full flex items-center">
-    <!-- logo on the left -->
-    <a href="index.html" class="flex items-center mr-auto">
-      <img src="assets/img/logo/umang25logo.png" alt="Umang25 Logo" class="h-8 w-8 rounded-sm mr-3 object-contain" />
-      <span class="text-xl md:text-2xl font-bold text-primary leading-none">Umang '25</span>
-    </a>
-
-    <!-- nav shifted fully to the right -->
-    <nav class="hidden md:flex space-x-8 font-semibold items-center ml-auto">
-      <a href="index.html" class="hover:text-primary transition">Home</a>
-      <a href="events.html" class="text-primary font-bold transition">Events</a>
-      <a href="team.html" class="hover:text-primary transition">Team</a>
-      <a href="contact.html" class="hover:text-primary transition">Contact</a>
-    </nav>
-
-    <div class="flex items-center gap-3 md:hidden ml-4">
-      <button id="menu-toggle" class="p-2">
-        <span class="material-icons text-3xl text-primary">menu</span>
-      </button>
+<!-- Header -->
+<header class="bg-white/95 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3 object-contain" />
+        <span class="text-2xl md:text-3xl font-bold text-primary">Umang '25</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <nav class="hidden md:flex space-x-8 font-semibold mr-4">
+          <a href="index.html" class="text-gray-700 hover:text-primary transition">Home</a>
+          <a href="events.html" class="text-primary font-bold transition">Events</a>
+          <a href="team.html" class="text-gray-700 hover:text-primary transition">Team</a>
+          <a href="contact.html" class="text-gray-700 hover:text-primary transition">Contact</a>
+        </nav>
+        <button id="menu-toggle" class="md:hidden p-2">
+          <span class="material-icons text-3xl text-primary">menu</span>
+        </button>
+      </div>
     </div>
-  </div>
+
+    <!-- Mobile Nav -->
+    <nav id="mobile-nav" class="fixed top-0 left-0 w-full h-screen bg-white z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300" style="display: none;">
+      <button id="menu-close" class="absolute top-5 right-8 text-gray-700">
+        <span class="material-icons text-3xl">close</span>
+      </button>
+      <a href="index.html" class="text-gray-700 hover:text-primary transition">Home</a>
+      <a href="events.html" class="text-primary font-bold transition">Events</a>
+      <a href="team.html" class="text-gray-700 hover:text-primary transition">Team</a>
+      <a href="contact.html" class="text-gray-700 hover:text-primary transition">Contact</a>
+    </nav>
 </header>
 
-  <!-- Mobile Nav -->
-  <nav
-    id="mobile-nav"
-    class="fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300"
-    style="display: none;"
-  >
-    <button id="menu-close" class="absolute top-5 right-8 text-gray-700 dark:text-gray-200">
-      <span class="material-icons text-3xl">close</span>
-    </button>
-    <a href="index.html" class="hover:text-primary transition">Home</a>
-    <a href="events.html" class="text-primary font-bold transition">Events</a>
-    <a href="team.html" class="hover:text-primary transition">Team</a>
-    <a href="contact.html" class="hover:text-primary transition">Contact</a>
-    <button id="dark-toggle" class="mt-8 px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
-      Toggle Dark Mode
-    </button>
-  </nav>
-
   <!-- Page Hero -->
-  <section class="hero-pattern w-full min-h-[28vh] flex items-center relative pt-28">
-    <div class="absolute inset-0 bg-black/45"></div>
+  <section class="hero-bg w-full min-h-[28vh] flex items-center relative pt-28">
+    <div class="absolute inset-0 bg-black/20"></div>
     <div class="relative z-10 max-w-6xl mx-auto px-4 py-16 text-center">
       <h1 class="text-white text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">Events</h1>
       <p class="text-white/90 max-w-2xl mx-auto">All sporting events at Umang '25 — click an event to view details & rules.</p>
@@ -237,7 +203,7 @@
   <main class="max-w-6xl mx-auto px-4 py-12">
     <section class="mb-10 text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Sports & Competitions</h2>
-      <p class="text-gray-300 max-w-2xl mx-auto">Click any card to open the event's page and learn more about categories, rules and registration.</p>
+      <p class="text-gray-600 max-w-2xl mx-auto">Click any card to open the event's page and learn more about categories, rules and registration.</p>
     </section>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -247,13 +213,13 @@
           <img src="assets/img/not-faded/basketball1.JPG" alt="Basketball" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Basketball</h3>
-          <p class="mt-2 text-sm text-gray-300 leading-relaxed">
+          <h3 class="text-2xl font-bold text-gray-800">Basketball</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">
             Men's 3v3 • Men's 5v5 • Women's 3v3
           </p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -264,11 +230,11 @@
           <img src="assets/img/not-faded/football2.JPG" alt="Football" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Football</h3>
-          <p class="mt-2 text-sm text-gray-300">Men's 6v6</p>
+          <h3 class="text-2xl font-bold text-gray-800">Football</h3>
+          <p class="mt-2 text-sm text-gray-600">Men's 6v6</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -279,13 +245,13 @@
           <img src="assets/img/not-faded/table-tennis.JPG" alt="Table Tennis" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Table Tennis</h3>
-          <p class="mt-2 text-sm text-gray-300 leading-relaxed">
+          <h3 class="text-2xl font-bold text-gray-800">Table Tennis</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">
             Men's Team • Men's Singles • Men's Doubles • Women's Singles • Mixed Doubles
           </p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -296,13 +262,13 @@
           <img src="assets/img/not-faded/badminton.JPG" alt="Badminton" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Badminton</h3>
-          <p class="mt-2 text-sm text-gray-300 leading-relaxed">
+          <h3 class="text-2xl font-bold text-gray-800">Badminton</h3>
+          <p class="mt-2 text-sm text-gray-600 leading-relaxed">
             Men's Team • Women's Singles • Mixed Doubles • Women's Doubles
           </p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -313,11 +279,11 @@
           <img src="assets/img/gallery/gallery4.png" alt="Volleyball" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Volleyball</h3>
-          <p class="mt-2 text-sm text-gray-300">Men's Team</p>
+          <h3 class="text-2xl font-bold text-gray-800">Volleyball</h3>
+          <p class="mt-2 text-sm text-gray-600">Men's Team</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -328,11 +294,11 @@
           <img src="assets/img/not-faded/tennis.jpg" alt="Tennis" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Tennis</h3>
-          <p class="mt-2 text-sm text-gray-300">Men's Singles • Men's Doubles</p>
+          <h3 class="text-2xl font-bold text-gray-800">Tennis</h3>
+          <p class="mt-2 text-sm text-gray-600">Men's Singles • Men's Doubles</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -343,11 +309,11 @@
           <img src="assets/img/gallery/gallery7.JPG" alt="Kabaddi" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Kabaddi</h3>
-          <p class="mt-2 text-sm text-gray-300">Men's Team</p>
+          <h3 class="text-2xl font-bold text-gray-800">Kabaddi</h3>
+          <p class="mt-2 text-sm text-gray-600">Men's Team</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -358,11 +324,11 @@
           <img src="assets/img/not-faded/throwball.JPG" alt="Throwball" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Throwball</h3>
-          <p class="mt-2 text-sm text-gray-300">Women's Team</p>
+          <h3 class="text-2xl font-bold text-gray-800">Throwball</h3>
+          <p class="mt-2 text-sm text-gray-600">Women's Team</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
@@ -373,73 +339,107 @@
           <img src="assets/img/gallery/gallery3.png" alt="Chess" class="object-cover w-full h-full sport-card-img" />
         </div>
         <div class="p-6">
-          <h3 class="text-2xl font-bold text-white">Chess</h3>
-          <p class="mt-2 text-sm text-gray-300">Team</p>
+          <h3 class="text-2xl font-bold text-gray-800">Chess</h3>
+          <p class="mt-2 text-sm text-gray-600">Team</p>
           <div class="mt-4 flex items-center justify-between">
             <span class="text-primary font-semibold">Register Now</span>
-            <span class="text-sm text-gray-400 group-hover:text-primary transition">→</span>
+            <span class="text-sm text-gray-500 group-hover:text-primary transition">→</span>
           </div>
         </div>
       </a>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 dark:bg-black text-white py-12 mt-10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row gap-8 justify-between">
-        <div class="flex-1 text-center md:text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Address</h4>
-          <p>
-            26C, Opposite to Infosys Gate 10<br />
-            Electronic City Phase 1, Hosur Road<br />
-            Bengaluru - 560100, Karnataka
-          </p>
+     <!-- Beautiful Footer -->
+    <footer class="bg-gray-800 /* dark:bg-black */ text-white py-16 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/50 rounded-full blur-3xl"></div>
         </div>
-        <div class="flex-1 text-center md:text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Contact Info</h4>
-          <ul>
-            <li>
-              Bharat:
-              <a href="tel:+918824119467" class="text-primary hover:underline">+91 88241 19467</a>
-            </li>
-            <li>
-              Mithilesh:
-              <a href="tel:+919591544183" class="text-primary hover:underline">+91 95915 44183</a>
-            </li>
-            <li>
-              Tarun:
-              <a href="tel:+918147691596" class="text-primary hover:underline">+91 81476 91596</a>
-            </li>
-            <li>
-              Email:
-              <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a>
-            </li>
-          </ul>
+        
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Address Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">location_on</span>
+                        <h4 class="text-xl font-bold text-primary">Address</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4">
+                        <p class="leading-relaxed text-gray-100 font-medium">
+                            26C, Opposite to Infosys Gate 10<br />
+                            Electronic City Phase 1, Hosur Road<br />
+                            Bengaluru - 560100, Karnataka
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">phone</span>
+                        <h4 class="text-xl font-bold text-primary">Contact Info</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-3">
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Bharat: <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Mithilesh: <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Tarun: <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">✉️</span>
+                            <span>Email: <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">share</span>
+                        <h4 class="text-xl font-bold text-primary">Follow Us</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-4">
+                        <a href="https://www.instagram.com/umangiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@umangiiitb</span>
+                        </a>
+                        <a href="https://www.instagram.com/sportscommiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@sportscommiiitb</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="text-gray-300 text-sm">
+                        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="flex-1 text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Follow Us</h4>
-          <ul class="flex flex-col gap-2 items-start">
-            <li>
-              <a href="https://www.instagram.com/umang_iiitb/" target="_blank" class="hover:underline flex items-center gap-2">
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
-                <span>@umang_iiitb</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/sportscomm_iiitb/" target="_blank" class="hover:underline flex items-center gap-2">
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
-                <span>@sportscomm_iiitb</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-300">
-        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
-      </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top" >
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
     </div>
-  </footer>
 
   <!-- Scripts -->
   <script>
@@ -461,27 +461,7 @@
       });
     }
 
-    // Dark mode toggles (mobile)
-    const darkToggle = document.getElementById("dark-toggle");
-
-    function toggleDark() {
-      document.documentElement.classList.toggle("dark");
-      // close mobile nav after toggling dark
-      if (mobileNav) {
-        mobileNav.style.display = "none";
-        document.body.style.overflow = "";
-      }
-      // persist preference
-      const isDark = document.documentElement.classList.contains("dark");
-      localStorage.setItem("umang-dark", isDark);
-    }
-
-    if (darkToggle) darkToggle.addEventListener("click", toggleDark);
-
-    // preserve dark mode preference across page reloads (simple)
-    if (localStorage.getItem("umang-dark") === "true") {
-      document.documentElement.classList.add("dark");
-    }
+    // No dark mode functionality needed
   </script>
     <!-- <script src="./assets/js/main.js"></script>
     <script src="./assets/js/jquery.magnific-popup.js"></script> -->
