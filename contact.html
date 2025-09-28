@@ -95,7 +95,7 @@
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-            gap: 2rem;
+            gap: 2.5rem;
             padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -114,10 +114,14 @@
             background: white;
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.15);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: fadeIn 0.8s ease-out;
-            border: 2px solid rgba(0, 119, 182, 0.1);
+            border: 2px solid #f5f5f5;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         /* Removed last-child special styling to keep all 3 in same row */
         .dark .contact-card {
@@ -127,34 +131,49 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 119, 182, 0.25);
-            border-color: #0077b6;
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: #f0f0f0;
         }
 
         .contact-img-container {
             position: relative;
             overflow: hidden;
             aspect-ratio: 1;
-            height: 200px; /* Added fixed height */
+            height: 300px; /* Increased height more */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
         }
 
         .contact-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Changed back to cover for better appearance */
+            object-position: center; /* Center the image by default */
+            padding: 0; /* Remove any padding */
+            transition: transform 0.6s ease;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        .contact-card:hover .contact-img {
+            transform: scale(1.05); /* Slight zoom effect on hover */
         }
 
         .contact-social {
             position: absolute;
             inset: 0;
-            background: rgba(0, 119, 182, 0.9);
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay instead of blue */
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(3px);
+            z-index: 10;
         }
 
         .contact-card:hover .contact-social {
@@ -163,37 +182,73 @@
 
         .social-icon {
             color: white;
-            font-size: 1.25rem; /* Reduced from 1.5rem */
-            transition: transform 0.2s ease;
+            font-size: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
         }
 
         .social-icon:hover {
-            transform: scale(1.2);
-            color: var(--accent);
+            transform: translateY(-5px);
+            background-color: white;
+            color: #333;
         }
 
         .contact-info {
-            padding: 1.5rem;
-            text-align: center; /* Center all text */
+            padding: 1.75rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50px;
+            height: 3px;
+            background: #f0f0f0;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-info::before {
+            width: 80px;
+            background: #ddd;
         }
 
         .contact-name {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            text-align: center; /* Center name */
+            color: #333;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            transition: color 0.3s ease;
         }
 
+        .contact-card:hover .contact-name {
+            color: #111;
+        }
+        
         .dark .contact-name {
             color: white;
         }
 
         .contact-phone {
-            font-size: 1rem;
-            color: #666;
-            text-align: center; /* Center phone */
+            font-size: 1.1rem;
+            color: #777;
+            text-align: center;
             font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-card:hover .contact-phone {
+            color: #555;
         }
 
         .dark .contact-phone {
@@ -545,7 +600,7 @@
                     <!-- Contact Card 1 -->
                     <div class="contact-card">
                         <div class="contact-img-container">
-                            <img src="mithilesh.jpg" alt="Mallikarjun Chakoti" class="contact-img">
+                            <img src="mithilesh.jpg" alt="Mallikarjun Chakoti" class="contact-img" style="object-position: center 30%;">
                             <div class="contact-social">
                                 <a href="https://www.instagram.com/malluvkcr7/" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
@@ -564,7 +619,7 @@
                     <!-- Contact Card 2 -->
                     <div class="contact-card">
                         <div class="contact-img-container">
-                            <img src="rstarun.jpg" alt="R S Tarun" class="contact-img">
+                            <img src="rstarun.jpg" alt="R S Tarun" class="contact-img" style="object-fit: cover; object-position: center;">
                             <div class="contact-social">
                                 <a href="https://www.instagram.com/tarunrs_05" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
@@ -582,7 +637,7 @@
 
                     <div class="contact-card">
                         <div class="contact-img-container">
-                            <img src="bharat.jpg" alt="Bharat Dhulgond" class="contact-img">
+                            <img src="bharat.jpg" alt="Bharat Dhulgond" class="contact-img" style="object-fit: cover; object-position: center top;">
                             <div class="contact-social">
                                 <a href="https://www.instagram.com/bharatkumar_dd" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
