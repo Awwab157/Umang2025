@@ -63,10 +63,11 @@
 <!-- Beautiful Promotional Styling -->
 <style>
     .hero-bg {
-        background: linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
+        background-image: url('assets/img/gallery/gallery4.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        position: relative;
     }
     .bg-white80 {
         background: rgba(255, 255, 255, 0.95);
@@ -77,13 +78,16 @@
         backdrop-filter: blur(10px);
     }
     .glass-effect {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
     .dark .glass-effect {
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(25px);
         border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
     }
     .gradient-text {
         background: linear-gradient(135deg, #0077b6, #023e8a);
@@ -201,31 +205,36 @@
 
 <!-- Beautiful Hero Section -->
 <section class="hero-bg w-full min-h-screen flex flex-col items-center justify-center relative pt-20 pb-12">
-    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-primary/30 to-background-dark/80"></div>
+    <!-- Dark overlay for better text readability -->
+    <div class="absolute inset-0 bg-black/50"></div>
+    
+    <!-- Glass effect container -->
     <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <div class="floating-animation">
-        <span class="inline-block text-lg font-semibold text-white/80 mb-4 px-4 py-2 rounded-full glass-effect">
-          🏐 Volleyball Championship
-        </span>
-      </div>
-      <h1 class="text-white font-bold text-6xl md:text-8xl leading-tight drop-shadow-2xl mb-6 floating-animation" style="animation-delay: 0.2s;">
-        Volleyball
-      </h1>
-      <p class="text-xl md:text-3xl font-light text-white/90 mb-4 floating-animation" style="animation-delay: 0.4s;">
-        Spike to Victory at Umang '25
-      </p>
-      <p class="text-lg md:text-xl text-white/80 mb-8 floating-animation" style="animation-delay: 0.6s;">
-        31st Oct - 2nd Nov 2025 | IIIT Bangalore
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center floating-animation" style="animation-delay: 0.8s;">
-        <a href="events.html" 
-           class="px-8 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold shadow-2xl hover:bg-white/30 hover:scale-105 transition-all duration-300">
-          ← Back to Events
-        </a>
-        <a href="#register" 
-           class="px-8 py-4 rounded-xl bg-primary text-white font-semibold shadow-2xl hover:bg-primary/80 hover:scale-105 transition-all duration-300">
-          Register Now
-        </a>
+      <div class="glass-effect rounded-3xl p-8 md:p-12 backdrop-blur-lg border border-white/20 shadow-2xl">
+        <div class="floating-animation">
+          <span class="inline-block text-lg font-semibold text-white/90 mb-4 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
+            🏐 Volleyball Championship
+          </span>
+        </div>
+        <h1 class="text-white font-bold text-6xl md:text-8xl leading-tight drop-shadow-2xl mb-6 floating-animation" style="animation-delay: 0.2s;">
+          Volleyball
+        </h1>
+        <p class="text-xl md:text-3xl font-light text-white/95 mb-4 floating-animation" style="animation-delay: 0.4s;">
+          Spike to Victory at Umang '25
+        </p>
+        <p class="text-lg md:text-xl text-white/85 mb-8 floating-animation" style="animation-delay: 0.6s;">
+          31st Oct - 2nd Nov 2025 | IIIT Bangalore
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center floating-animation" style="animation-delay: 0.8s;">
+          <a href="events.html" 
+             class="px-8 py-4 rounded-xl bg-white/15 backdrop-blur-sm border border-white/25 text-white font-semibold shadow-2xl hover:bg-white/25 hover:scale-105 transition-all duration-300">
+            ← Back to Events
+          </a>
+          <a href="#register" 
+             class="px-8 py-4 rounded-xl bg-primary/80 backdrop-blur-sm text-white font-semibold shadow-2xl hover:bg-primary hover:scale-105 transition-all duration-300 border border-primary/30">
+            Register Now
+          </a>
+        </div>
       </div>
     </div>
     <!-- Floating Elements -->
