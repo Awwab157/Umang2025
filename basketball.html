@@ -6,8 +6,35 @@
     <title>Umang 2025</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
+    <link rel="manifest" hr                    
+    <!-- <div class="mb-4 text-gray-600 dark:text-gray-300 text-center lg:text-left">
+            <!-- <p class="text-lg font-medium text-gray-700 dark:text-gray-300">Choose your basketball category and register:</p>
+                    </div>"site.webmanifest"> --> -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Home page theme integration -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script>
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                primary: "#0077b6",
+                "background-light": "#f0f8ff",
+                "background-dark": "#023e8a",
+              },
+              fontFamily: {
+                display: ["Poppins", "sans-serif"],
+              },
+              borderRadius: {
+                xl: "1rem",
+              },
+            },
+          },
+        };
+    </script>
 
 	<!-- CSS here -->
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -23,7 +50,7 @@
 	<link rel="stylesheet" href="assets/css/nice-select.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
     <!-- ? Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
@@ -36,359 +63,475 @@
         </div>
     </div>
     <!-- Preloader Start -->
-<header>
-    <!--? Header Start -->
-    <style>
-        .header-area {
-            background-color: #010110;
-        }
-        .header-area .main-menu ul#navigation li a {
-            color: white;
-            transition: color 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            padding: 12px 20px;
-            border-radius: 4px;
-            font-size: 1.1rem;
-        }
-        /* Shimmer effect for navigation buttons */
-        .header-area .main-menu ul#navigation li a::after {
-            content: '';
-            position: absolute;
-            top: 0; left: -75%;
-            width: 50%; height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(252, 165, 254, 0.5), transparent);
-            transform: skewX(-20deg);
-            transition: all 0.5s;
-        }
-        .header-area .main-menu ul#navigation li a:hover::after {
-            left: 130%;
-        }
-        .header-area .main-menu ul#navigation li a:hover {
-            color: #FCA5FE;
-        }
-        .main-header{
-            background-color: #010110;
-            padding: 15px 0;
-        }
-        .logo img {
-            width: 100px !important;
-            max-width: none;
-        }
-    </style>
-    <div class="header-area">
-        <div class="main-header header-sticky">
-            <div class="container-fluid">
-                <div class="row align-items-center">
-                    <!-- Logo -->
-                    <div class="col-xl-2 col-lg-2 col-md-1">
-                        <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/umang25logo.png" alt="Umang25Logo" width="80%"></a>
-                        </div>
-                    </div>
-                    <div class="col-xl-10 col-lg-10 col-md-10">
-                        <div class="menu-main d-flex align-items-center justify-content-end">
-                            <!-- Main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
-                                <nav>
-                                    <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li>
-                                        <li><a href="events.html">Events</a></li>
-                                        <li><a href="team.html">Team</a></li>
-                                        <!-- <li><a href="schedule.html">Contact</a></li> -->
-                                        <!-- <li><a href="blog.html">Blog</a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
-                                            </ul> -->
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!-- <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                <a href="#" class="btn header-btn">Get Your Ticket</a>
-                            </div> -->
-                        </div>
-                    </div>   
-                    <!-- Mobile Menu -->
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- Beautiful Promotional Styling -->
+<style>
+    .hero-bg {
+        background: linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .bg-white80 {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    .bg-black50 {
+        background: rgba(0, 0, 0, 0.95);
+        backdrop-filter: blur(10px);
+    }
+    .glass-effect {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .dark .glass-effect {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .gradient-text {
+        background: linear-gradient(135deg, #0077b6, #023e8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .floating-animation {
+        animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+    }
+    .hover-scale {
+        transition: all 0.3s ease;
+    }
+    .hover-scale:hover {
+        transform: scale(1.05) translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 119, 182, 0.3);
+    }
+    .dark .hover-scale:hover {
+        box-shadow: 0 20px 40px rgba(0, 119, 182, 0.5);
+    }
+</style>
+
+<!-- Header -->
+<header class="bg-white/95 dark:bg-black/80 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="index.html" class="flex items-center">
+        <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3 object-contain" />
+        <span class="text-2xl md:text-3xl font-bold text-primary">Umang '25</span>
+      </a>
+      <nav class="hidden md:flex space-x-8 font-semibold">
+        <a href="index.html" class="text-gray-700 dark:text-white hover:text-primary transition">Home</a>
+        <a href="events.html" class="text-gray-700 dark:text-white hover:text-primary transition">Events</a>
+        <a href="team.html" class="text-gray-700 dark:text-white hover:text-primary transition">Team</a>
+        <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary transition">Contact</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <button id="menu-toggle" class="md:hidden p-2">
+          <span class="material-icons text-3xl text-primary">menu</span>
+        </button>
+        <button id="desktop-dark-toggle" class="hidden md:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+          <span id="desktop-toggle-text">Toggle Dark</span>
+        </button>
+      </div>
     </div>
-    <!-- Header End -->
+    <!-- Mobile Nav -->
+    <nav id="mobile-nav" class="fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300" style="display: none;">
+      <button id="menu-close" class="absolute top-5 right-8 text-gray-700 dark:text-gray-200">
+        <span class="material-icons text-3xl">close</span>
+      </button>
+      <a href="index.html" class="text-gray-700 dark:text-white hover:text-primary transition">Home</a>
+      <a href="events.html" class="text-gray-700 dark:text-white hover:text-primary transition">Events</a>
+      <a href="team.html" class="text-gray-700 dark:text-white hover:text-primary transition">Team</a>
+      <a href="contact.html" class="text-gray-700 dark:text-white hover:text-primary transition">Contact</a>
+      <button id="mobile-dark-toggle" class="mt-8 px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
+        <span id="mobile-toggle-text">Toggle Dark Mode</span>
+      </button>
+    </nav>
 </header>
-<main>
-    <!--? Hero Start -->
-    <style>
-        .slider-height2 {
-            background-image: url(assets/img/hero/hero2.png); /* Replace with the path to your image */
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            width: 100%;
-            height: 40vh;
-        }
 
-        .hero-cap h2 {
-            color: white; /* Adjust color for readability */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better contrast */
-        }
-        .events-link {
-            color: #DF84E1; /* Original color */
-            text-decoration: none; /* Remove underline */
-        }
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById("menu-toggle");
+    const menuClose = document.getElementById("menu-close");
+    const mobileNav = document.getElementById("mobile-nav");
+    
+    menuToggle.addEventListener("click", () => {
+      mobileNav.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+    
+    menuClose.addEventListener("click", () => {
+      mobileNav.style.display = "none";
+      document.body.style.overflow = "";
+    });
+    
+    // Dark mode toggle functions
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle("dark");
+      const isDark = document.documentElement.classList.contains("dark");
+      
+      // Update button text
+      const desktopText = document.getElementById("desktop-toggle-text");
+      const mobileText = document.getElementById("mobile-toggle-text");
+      desktopText.textContent = isDark ? 'Toggle Light' : 'Toggle Dark';
+      mobileText.textContent = isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+      
+      // Close mobile menu if open
+      document.getElementById("mobile-nav").style.display = "none";
+      document.body.style.overflow = "";
+      
+      // Save preference
+      localStorage.setItem('darkMode', isDark);
+    }
+    
+    // Desktop dark mode toggle
+    document.getElementById("desktop-dark-toggle").onclick = toggleDarkMode;
+    
+    // Mobile dark mode toggle
+    document.getElementById("mobile-dark-toggle").onclick = toggleDarkMode;
+    
+    // Set default to light mode and load saved preference
+    document.documentElement.classList.remove('dark');
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.documentElement.classList.add('dark');
+      const desktopText = document.getElementById("desktop-toggle-text");
+      const mobileText = document.getElementById("mobile-toggle-text");
+      if (desktopText) desktopText.textContent = 'Toggle Light';
+      if (mobileText) mobileText.textContent = 'Toggle Light Mode';
+    }
+</script>
 
-        .events-link:hover {
-            color: #FF69B4; /* Pink color on hover */
-        }
-    </style>
-    <div class="slider-area2">
-        <div class="slider-height2 d-flex align-items-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2><a href="events.html" class="events-link">Events</a> > Basketball</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- Beautiful Hero Section -->
+<section class="hero-bg w-full min-h-screen flex flex-col items-center justify-center relative pt-20 pb-12">
+    <div class="absolute inset-0 bg-gradient-to-br from-black/70 via-primary/30 to-background-dark/80"></div>
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div class="floating-animation">
+        <span class="inline-block text-lg font-semibold text-white/80 mb-4 px-4 py-2 rounded-full glass-effect">
+          🏀 Basketball Championship
+        </span>
+      </div>
+      <h1 class="text-white font-bold text-6xl md:text-8xl leading-tight drop-shadow-2xl mb-6 floating-animation" style="animation-delay: 0.2s;">
+        Basketball
+      </h1>
+      <p class="text-xl md:text-3xl font-light text-white/90 mb-4 floating-animation" style="animation-delay: 0.4s;">
+        Court Domination at Umang '25
+      </p>
+      <p class="text-lg md:text-xl text-white/80 mb-8 floating-animation" style="animation-delay: 0.6s;">
+        31st Oct - 2nd Nov 2025 | IIIT Bangalore
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center floating-animation" style="animation-delay: 0.8s;">
+        <a href="events.html" 
+           class="px-8 py-4 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold shadow-2xl hover:bg-white/30 hover:scale-105 transition-all duration-300">
+          ← Back to Events
+        </a>
+        <a href="#register" 
+           class="px-8 py-4 rounded-xl bg-primary text-white font-semibold shadow-2xl hover:bg-primary/80 hover:scale-105 transition-all duration-300">
+          Register Now
+        </a>
+      </div>
     </div>
-    <!-- Hero End -->
-    <!--? About Law Start-->
+    <!-- Floating Elements -->
+    <div class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl floating-animation"></div>
+    <div class="absolute bottom-20 right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl floating-animation" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-20 w-16 h-16 bg-white/5 rounded-full blur-lg floating-animation" style="animation-delay: 1.5s;"></div>
+</section>
+<!-- Beautiful Main Content Section -->
+<section class="py-20 px-4 bg-background-light dark:bg-background-dark relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 left-0 w-full h-full opacity-5 dark:opacity-10">
+        <div class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/50 rounded-full blur-3xl"></div>
+    </div>
     
-    <style>
-        .about-low-area {
-            background-color: #14062E;
-        }
-        .about-low-area .section-tittle h2,
-        .about-low-area h5 {
-            color: #DF84E1;
-        }
-        .about-caption ul {
-            list-style-type: circle !important;
-            color: #FFFFFF;
-        }
-        .about-caption ul li {
-            margin-bottom: 8px;
-        }
-        .about-caption {
-            display: flex;
-            flex-direction: column;
-        }
-        .registration-contact-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px; /* Space between buttons and points of contact */
-            margin-top: 20px;
-        }
-        .btn-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            flex: 1;
-        }
-        .btn-container .btn {
-            background-color: #422989;
-            color: #FFFFFF;
-            padding: 20px 24px;
-            border-radius: 30px;
-            text-decoration: none;
-            transition: all 0.4s ease;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-container .btn:hover {
-            background-color: #6A3EBF;
-            transform: translateY(-5px) scale(1.05);
-            border-radius: 5px;
-        }
-        .point-of-contact {
-            align-items: center;
-            justify-content: center; /* Center align the items horizontally */
-            flex: 1;
-            color: #FFFFFF;
-            text-align: center; /* Center align text */
-            margin-top: 20px; /* This ensures it has space from the buttons above */
-        }
-        .point-of-contact h5{
-            color: #DF84E1;
-            text-align: center;
-        }
-        .about-caption .point-of-contact p {
-            color: #FFFFFF;
-            margin: 5px 0;
-            text-align: center;
-        }
-    </style>
-    
-    <section class="about-low-area section-padding2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="about-caption mb-40">
-                        <div class="section-tittle mb-35">
-                            <h2>General Rules</h2>
-                        </div>
-                        <ul style="margin-top: -50px;">
-                            <li>- Participants must produce bona fide certificates and institute ID Cards for verification.</li>
-                            <li>- Each college may field two teams (Team A, Team B) for each sport.</li>
-                            <li>- No player is allowed to play for more than one team.</li>
-                            <li>- Fixtures and schedule will be sent to the team captain 3-4 days before the tournament.</li>
-                            <li>- Under no circumstances will teams be allowed to change their players after registration.</li>
-                            <li>- Accommodation will not be provided for this event.</li>
-                            <li>- All events are subject to registrations and availability of venues.</li>
-                            <li>- The Sports Committee of IIITB reserves the right to decide on all disputes.</li>
-                            <li>- Use of abusive language directed towards officials, players, or the organizing committee will result in immediate disqualification.</li>
-                            <li>- All participants are expected to maintain decorum on all sporting arenas, university campus, and related areas. Any altercations/misbehaviour shall be dealt with strictly, and the decision of the Organizing Committee in this regard is final.</li>
-                            <li>- Any altercation/misbehaviour may result in the disqualification of the participating institution from Umang 2025 and future events.</li>
-                            <li>- The Convener of the Sports Committee (International Institute of Information Technology, Bangalore) reserves the right to change the format or rules as may be necessary at any given point in time.</li>
-                        </ul>   
-                        <a href="https://docs.google.com/document/d/1ocV4d3CyINPgbpMGxwtjb9lcmkBSEzF0G0nomzVM4Kw/edit?usp=sharing" class="btn" target="_blank">List of Rules & Regulations</a> 
-                        
-                        <div class="registration-contact-container">
-                            
-                            <div class="btn-container" style="width: 100vw;">
-                                
-                                <a href="https://forms.gle/NBMHStigAMsAyw14A" class="btn" target="_blank">Men's 3v3</a>
-                                <a href="https://forms.gle/NBMHStigAMsAyw14A" class="btn" target="_blank">Men's 5v5</a>
-                                <a href="https://forms.gle/NBMHStigAMsAyw14A" class="btn" target="_blank">Women's 3v3</a>
-                                <!-- <a href="#" class="btn">Team Event</a> -->
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <!-- Rules and Information -->
+            <div class="space-y-8">
+                <!-- Section Header -->
+                <div class="text-center lg:text-left">
+                    <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
+                        🏆 Tournament Rules
+                    </span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                        General Rules & Guidelines
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                        Everything you need to know to compete in Basketball at Umang '25
+                    </p>
+                </div>
+
+                <!-- Rules List -->
+                <div class="glass-effect rounded-2xl p-8 hover-scale">
+                    <ul class="space-y-4 text-gray-700 dark:text-gray-300">
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Participants must produce bona fide certificates and institute ID Cards for verification.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Each college may field two teams (Team A, Team B) for each sport.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>No player is allowed to play for more than one team.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Fixtures and schedule will be sent to the team captain 3-4 days before the tournament.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Under no circumstances will teams be allowed to change their players after registration.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Accommodation will not be provided for this event.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>All events are subject to registrations and availability of venues.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>The Sports Committee of IIITB reserves the right to decide on all disputes.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Use of abusive language directed towards officials, players, or the organizing committee will result in immediate disqualification.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>All participants are expected to maintain decorum on all sporting arenas, university campus, and related areas. Any altercations/misbehaviour shall be dealt with strictly, and the decision of the Organizing Committee in this regard is final.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>Any altercation/misbehaviour may result in the disqualification of the participating institution from Umang 2025 and future events.</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-sm font-bold mt-0.5">✓</span>
+                            <span>The Convener of the Sports Committee (International Institute of Information Technology, Bangalore) reserves the right to change the format or rules as may be necessary at any given point in time.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Registration Section -->
+                <div id="register" class="glass-effect rounded-2xl p-8" style="scroll-margin-top: 100px;">
+                    <h3 class="text-2xl font-bold text-primary mb-6 text-center lg:text-left">
+                        🚀 Register Your Team
+                    </h3>
+                    <div class="mb-4 text-gray-600 dark:text-gray-300 text-center lg:text-left">
+                        <p class="text-lg font-medium text-gray-700 dark:text-gray-300">Choose your basketball category and register your team:</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <a href="https://forms.gle/NBMHStigAMsAyw14A" 
+                           target="_blank"
+                           class="group relative overflow-hidden px-6 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                            <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                            <div class="relative flex items-center justify-center">
+                                <span class="material-icons mr-2">sports_basketball</span>
+                                Men's 3v3
                             </div>
-                        </div>
-                        <div class="point-of-contact" style="margin-top: 20px;">
-                            <h5>Points of Contact</h5>
-                            <div>M. Nishal - +91 73380 04562</div>
-                            <div>Lesin - +91 94484 48371</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="about-img">
-                        <div class="about-back-img">
-                            <img src="assets/img/gallery/Vbasketball.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    
-    
-    
-    
-    <!-- About Law End-->
-    <!-- accordion End -->
-    <!--? gallery Products Start -->
-    <!-- <div class="gallery-area fix">
-        <div class="container-fluid p-0">
-            <div class="row no-gutters">
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery1.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery2.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery3.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery4.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                             <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery5.png);"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6">
-                    <div class="gallery-box">
-                        <div class="single-gallery">
-                            <div class="gallery-img " style="background-image: url(assets/img/gallery/gallery6.png);"></div>
-                        </div>
+                        </a>
+                        <a href="https://forms.gle/NBMHStigAMsAyw14A" 
+                           target="_blank"
+                           class="group relative overflow-hidden px-6 py-4 bg-gradient-to-r from-primary/80 to-primary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                            <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                            <div class="relative flex items-center justify-center">
+                                <span class="material-icons mr-2">sports_basketball</span>
+                                Men's 5v5
+                            </div>
+                        </a>
+                        <a href="https://forms.gle/NBMHStigAMsAyw14A" 
+                           target="_blank"
+                           class="group relative overflow-hidden px-6 py-4 bg-gradient-to-r from-primary/60 to-primary/80 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center">
+                            <div class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                            <div class="relative flex items-center justify-center">
+                                <span class="material-icons mr-2">sports_basketball</span>
+                                Women's 3v3
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </div> -->
-    <!-- gallery Products End -->
-    </main>
-    <footer>
-        <div class="footer-area footer-padding">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <!-- Address Column -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Address</h4>
-                                <div class="footer-pera">
-                                    <p>26/C, Opposite to Infosys Gate 10 <br> Electronics City Phase 1, Hosur Road <br> Bengaluru - 560100, Karnataka</p>
+            
+            <!-- Image and Stats -->
+            <div class="space-y-8">
+                <!-- Spacer to align image with General Rules section -->
+                <div class="h-16"></div>
+                
+                <!-- Main Image -->
+                <div class="relative group">
+                    <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+                    <img src="assets/img/gallery/Vbasketball.png" 
+                         alt="Basketball Championship" 
+                         class="relative rounded-2xl shadow-2xl w-full h-auto hover-scale">
+                </div>
+
+                <!-- Action Cards Grid - All Equal Heights -->
+                <div class="space-y-6">
+                    <!-- Prize Pool and Complete Rules side by side -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Prize Pool Card -->
+                        <div class="glass-effect rounded-xl p-8 text-center hover-scale h-40 flex flex-col justify-center">
+                            <div class="text-4xl font-bold gradient-text mb-3">₹60K</div>
+                            <div class="text-lg font-semibold text-gray-600 dark:text-gray-400">Prize Pool</div>
+                            <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">Exciting rewards for winners and runners-up</p>
+                        </div>
+                        
+                        <!-- Complete Rules Card -->
+                        <div class="glass-effect rounded-xl p-8 text-center hover-scale h-40 flex flex-col justify-center">
+                            <div class="mb-4">
+                                <span class="material-icons text-primary text-3xl mb-2 block">description</span>
+                                <div class="text-lg font-semibold text-gray-600 dark:text-gray-400">Tournament Rules</div>
+                            </div>
+                            <a href="https://docs.google.com/document/d/1ocV4d3CyINPgbpMGxwtjb9lcmkBSEzF0G0nomzVM4Kw/edit?usp=sharing" 
+                               target="_blank"
+                               class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary to-primary/80 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-sm">
+                                View Complete Rules
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Points of Contact Card - Full Width -->
+                    <div class="glass-effect rounded-xl p-8 text-center hover-scale">
+                        <div class="flex items-center justify-center mb-6">
+                            <span class="material-icons text-primary text-3xl mr-3">contact_phone</span>
+                            <h3 class="text-2xl font-bold text-primary">Points of Contact</h3>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                            <div class="glass-effect rounded-lg p-6 hover:bg-primary/5 transition-all duration-300">
+                                <div class="flex items-center justify-center mb-3">
+                                    <span class="material-icons text-primary text-2xl mr-2">person</span>
+                                    <p class="text-xl font-semibold text-gray-800 dark:text-white">Contact Person 1</p>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons text-primary text-lg mr-2">phone</span>
+                                    <a href="tel:+919876543210" class="text-primary hover:underline font-medium text-lg transition-colors">
+                                        +91 98765 43210
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="glass-effect rounded-lg p-6 hover:bg-primary/5 transition-all duration-300">
+                                <div class="flex items-center justify-center mb-3">
+                                    <span class="material-icons text-primary text-2xl mr-2">person</span>
+                                    <p class="text-xl font-semibold text-gray-800 dark:text-white">Contact Person 2</p>
+                                </div>
+                                <div class="flex items-center justify-center">
+                                    <span class="material-icons text-primary text-lg mr-2">phone</span>
+                                    <a href="tel:+918765432109" class="text-primary hover:underline font-medium text-lg transition-colors">
+                                        +91 87654 32109
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Contact Info Column -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Contact Info</h4>
-                                <ul>
-                                    <li><a href="tel:+918824119467">Bharat: +91 88241 19467</a></li>
-                                    <li><a href="tel:+919591544183">Mithilesh: +91 95915 44183</a></li>
-                                    <li><a href="tel:+918147691596">Tarun: +91 81476 91596</a></li>
-                                    <li><a href="mailto:sportscomm@iiitb.ac.in">Mail: sportscomm@iiitb.ac.in</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Important Links Column -->
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Follow Us</h4>
-                                <ul>
-                                    <li><a href="https://www.instagram.com/umang_iiitb/" target="_blank"><i class="fab fa-instagram"></i> umang_iiitb</a></li>
-                                    <li><a href="https://www.instagram.com/sportscomm_iiitb/" target="_blank"><i class="fab fa-instagram"></i> sportscomm_iiitb</a></li>
-                                </ul>
+                                <!-- <div class="flex items-center justify-center">
+                                    <span class="material-icons text-primary text-lg mr-2">phone</span>
+                                    <a href="tel:+919660831133" class="text-primary hover:underline font-medium text-lg transition-colors">
+                                        <!-- +91 96608 31133 -->
+                                    </a>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-copy-right" style="display: flex; justify-content: center; text-align: center;">
-                <p style="color: #FCA5FE;">
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with 
-                    <i class="fa fa-heart" aria-hidden="true"></i> by 
-                    <a href="https://colorlib.com" target="_blank" style="color: #FCA5FE; text-decoration: none;">Colorlib</a>
-                </p>
+        </div>
+    </div>
+</section>
+                        <!-- <div class="point-of-contact" style="margin-top: 20px;">
+                            <h5>Points of Contact</h5>
+                            <div>Suryans - +91 93816 00385</div>
+                            <div>Harsh Modi - +91 96608 31133</div>
+                        </div> -->
+                
+    
+    <!-- gallery Products End -->
+    </main>
+
+    <!-- Beautiful Footer -->
+    <footer class="bg-gray-800 dark:bg-black text-white py-16 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/50 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Address Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">location_on</span>
+                        <h4 class="text-xl font-bold text-primary">Address</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4">
+                        <p class="leading-relaxed text-gray-100 font-medium">
+                            26C, Opposite to Infosys Gate 10<br />
+                            Electronic City Phase 1, Hosur Road<br />
+                            Bengaluru - 560100, Karnataka
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">phone</span>
+                        <h4 class="text-xl font-bold text-primary">Contact Info</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-3">
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Bharat: <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Mithilesh: <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Tarun: <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">✉️</span>
+                            <span>Email: <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">share</span>
+                        <h4 class="text-xl font-bold text-primary">Follow Us</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-4">
+                        <a href="https://www.instagram.com/umangiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@umangiiitb</span>
+                        </a>
+                        <a href="https://www.instagram.com/sportscommiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@sportscommiiitb</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="text-gray-300 text-sm">
+                        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
