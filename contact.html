@@ -69,12 +69,12 @@
         /* Contact section styling */
         .contact-section {
             animation: fadeIn 0.8s ease-out;
-            padding: 4rem 0;
-            background-color: var(--background-light);
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f0f8ff 0%, rgba(0, 119, 182, 0.05) 100%);
         }
 
         .dark .contact-section {
-            background-color: var(--dark-bg);
+            background: linear-gradient(135deg, #023e8a 0%, rgba(0, 119, 182, 0.1) 100%);
         }
 
         /* Map and Instagram container styles */
@@ -94,29 +94,36 @@
         /* Contact cards grid */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(250px, 1fr)); /* Changed to 2 columns */
-            gap: 1.5rem;
-            padding: 1.5rem;
-            max-width: 800px;
+            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+            gap: 2.5rem;
+            padding: 2rem;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr; /* Stack on mobile */
+                gap: 1.5rem;
+                padding: 1rem;
+            }
         }
 
         /* Contact card styling */
         .contact-card {
             background: white;
-            border-radius: 0.75rem; /* Reduced from 1rem */
+            border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: fadeIn 0.8s ease-out;
-            max-width: 300px; /* Added max-width */
-            margin: 0 auto; 
+            border: 2px solid #f5f5f5;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
-        .contact-card:last-child {
-            grid-column: 1 / -1; 
-            justify-self: center; 
-            max-width: 300px; 
-        }
+        /* Removed last-child special styling to keep all 3 in same row */
         .dark .contact-card {
             background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -124,33 +131,49 @@
         }
 
         .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: #f0f0f0;
         }
 
         .contact-img-container {
             position: relative;
             overflow: hidden;
             aspect-ratio: 1;
-            height: 200px; /* Added fixed height */
+            height: 300px; /* Increased height more */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f8f8f8;
         }
 
         .contact-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Changed back to cover for better appearance */
+            object-position: center; /* Center the image by default */
+            padding: 0; /* Remove any padding */
+            transition: transform 0.6s ease;
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        .contact-card:hover .contact-img {
+            transform: scale(1.05); /* Slight zoom effect on hover */
         }
 
         .contact-social {
             position: absolute;
             inset: 0;
-            background: rgba(0, 119, 182, 0.9);
+            background: rgba(0, 0, 0, 0.7); /* Dark overlay instead of blue */
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(3px);
+            z-index: 10;
         }
 
         .contact-card:hover .contact-social {
@@ -159,33 +182,73 @@
 
         .social-icon {
             color: white;
-            font-size: 1.25rem; /* Reduced from 1.5rem */
-            transition: transform 0.2s ease;
+            font-size: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
         }
 
         .social-icon:hover {
-            transform: scale(1.2);
-            color: var(--accent);
+            transform: translateY(-5px);
+            background-color: white;
+            color: #333;
         }
 
         .contact-info {
-            padding: 1rem; /* Reduced from 1.5rem */
+            padding: 1.75rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50px;
+            height: 3px;
+            background: #f0f0f0;
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-info::before {
+            width: 80px;
+            background: #ddd;
         }
 
         .contact-name {
-            font-size: 1.1rem; /* Reduced from 1.25rem */
+            font-size: 1.35rem;
             font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.3rem; /* Reduced from 0.5rem */
+            color: #333;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            transition: color 0.3s ease;
         }
 
+        .contact-card:hover .contact-name {
+            color: #111;
+        }
+        
         .dark .contact-name {
             color: white;
         }
 
         .contact-phone {
-            font-size: 0.9rem; /* Added smaller font size */
-            color: #666;
+            font-size: 1.1rem;
+            color: #777;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-card:hover .contact-phone {
+            color: #555;
         }
 
         .dark .contact-phone {
@@ -278,43 +341,29 @@
 
         /* Enhanced card styling */
         .info-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 119, 182, 0.1);
             transform: translateY(0);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            text-align: center; /* Center all content */
         }
 
         .dark .info-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .info-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 119, 182, 0.15);
         }
 
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 119, 182, 0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
 
-        .info-card:hover::before {
-            opacity: 1;
-        }
 
         .card-icon {
             font-size: 2.5rem;
@@ -322,10 +371,12 @@
             margin-bottom: 20px;
             transform: scale(1);
             transition: transform 0.3s ease;
+            display: block;
+            text-align: center; /* Center icon */
         }
 
         .info-card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+            transform: scale(1.1);
         }
 
         .card-title {
@@ -333,6 +384,7 @@
             font-weight: bold;
             color: #0077b6;
             margin-bottom: 15px;
+            text-align: center; /* Center title */
         }
 
         .dark .card-title {
@@ -391,25 +443,35 @@
         <!--? Hero Start -->
         <style>
             .slider-height2 {
-                /* min-height: 0vh; */
-                background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(assets/img/hero/hero2.png);
+                background: linear-gradient(135deg, #0077b6 0%, #f0f8ff 50%, #023e8a 100%);
                 background-size: cover;
                 background-position: center;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding-top: 7rem;
+                min-height: 50vh;
             }
 
             .hero-cap h2 {
                 color: white;
-                font-size: 3rem;
+                font-size: 3.5rem;
                 font-weight: bold;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+                margin-bottom: 1rem;
+            }
+
+            .hero-cap p {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 1.2rem;
+                max-width: 600px;
+                margin: 0 auto;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             }
         </style>
         <div class="slider-area2" >
             <div class="slider-height2 d-flex align-items-center">
+                <div class="absolute inset-0 bg-black/20"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -531,13 +593,14 @@
 
                 <!-- Contact Cards -->
                 <div class="section-title">
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">Points of Contact</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold text-primary mb-8 text-center">Points of Contact</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl mx-auto mb-12">Get in touch with our sports committee members for any queries about Umang '25</p>
                 </div>
                 <div class="contact-grid">
                     <!-- Contact Card 1 -->
                     <div class="contact-card">
                         <div class="contact-img-container">
-                            <img src="mithilesh.jpg" alt="Mallikarjun Chakoti" class="contact-img">
+                            <img src="mithilesh.jpg" alt="Mallikarjun Chakoti" class="contact-img" style="object-position: center 30%;">
                             <div class="contact-social">
                                 <a href="https://www.instagram.com/malluvkcr7/" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
@@ -556,7 +619,7 @@
                     <!-- Contact Card 2 -->
                     <div class="contact-card">
                         <div class="contact-img-container">
-                            <img src="rstarun.jpg" alt="R S Tarun" class="contact-img">
+                            <img src="rstarun.jpg" alt="R S Tarun" class="contact-img" style="object-fit: cover; object-position: center;">
                             <div class="contact-social">
                                 <a href="https://www.instagram.com/tarunrs_05" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
@@ -574,7 +637,7 @@
 
                     <div class="contact-card">
                         <div class="contact-img-container">
-                            <img src="bharat.jpg" alt="Bharat Dhulgond" class="contact-img">
+                            <img src="bharat.jpg" alt="Bharat Dhulgond" class="contact-img" style="object-fit: cover; object-position: center top;">
                             <div class="contact-social">
                                 <a href="https://www.instagram.com/bharatkumar_dd" target="_blank" class="social-icon">
                                     <i class="fab fa-instagram"></i>
@@ -596,61 +659,98 @@
 
 
     </main>
-    <footer class="bg-gray-800 dark:bg-black text-white py-12 mt-10">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row gap-8 justify-between">
-        <div class="flex-1 text-center md:text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Address</h4>
-          <p style="color: white;">
-            26C, Opposite to Infosys Gate 10<br />
-            Electronic City Phase 1, Hosur Road<br />
-            Bengaluru - 560100, Karnataka
-          </p>
+   <!-- Beautiful Footer -->
+    <footer class="bg-gray-800 /* dark:bg-black */ text-white py-16 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/50 rounded-full blur-3xl"></div>
         </div>
-        <div class="flex-1 text-center md:text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Contact Info</h4>
-          <ul style="text-align: left;margin-left: 80px;">
-            <li>
-              Bharat:
-              <a href="tel:+918824119467" class="text-primary hover:underline">+91 88241 19467</a>
-            </li>
-            <li>
-              Mithilesh:
-              <a href="tel:+919591544183" class="text-primary hover:underline">+91 95915 44183</a>
-            </li>
-            <li>
-              Tarun:
-              <a href="tel:+918147691596" class="text-primary hover:underline">+91 81476 91596</a>
-            </li>
-            <li>
-              Email:
-              <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a>
-            </li>
-          </ul>
+        
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Address Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">location_on</span>
+                        <h4 class="text-xl font-bold text-primary">Address</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4">
+                        <p class="leading-relaxed text-gray-100 font-medium">
+                            26C, Opposite to Infosys Gate 10<br />
+                            Electronic City Phase 1, Hosur Road<br />
+                            Bengaluru - 560100, Karnataka
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">phone</span>
+                        <h4 class="text-xl font-bold text-primary">Contact Info</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-3">
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Bharat: <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Mithilesh: <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Tarun: <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">✉️</span>
+                            <span>Email: <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">share</span>
+                        <h4 class="text-xl font-bold text-primary">Follow Us</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-4">
+                        <a href="https://www.instagram.com/umangiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@umangiiitb</span>
+                        </a>
+                        <a href="https://www.instagram.com/sportscommiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@sportscommiiitb</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="text-gray-300 text-sm">
+                        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="flex-1 text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Follow Us</h4>
-          <ul class="flex flex-col gap-2 items-start">
-            <li>
-              <a href="https://www.instagram.com/umang_iiitb/" target="_blank" class="hover:underline flex items-center gap-2">
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
-                <span>@umang_iiitb</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/sportscomm_iiitb/" target="_blank" class="hover:underline flex items-center gap-2">
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/></svg>
-                <span>@sportscomm_iiitb</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-300">
-        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
-      </div>
-    </div>
-  </footer>
+    </footer>
+    <!-- Scroll Up -->
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
+    <!-- Scroll Up -->
 
     <!-- Scroll Up -->
     <div id="back-top" >
