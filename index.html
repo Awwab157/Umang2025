@@ -240,38 +240,34 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
   <!-- Header -->
-  <header class="bg-white80 dark:bg-black50 fixed top-0 left-0 right-0 z-50 shadow-sm">
+  <header class="bg-white/95 fixed top-0 left-0 right-0 z-50 backdrop-blur-sm shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="flex items-center">
-        <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3" />
-        <span class="text-3xl font-bold text-primary">Umang '25</span>
+        <img src="assets/img/logo/umang_logo.png" alt="Umang25 Logo" class="h-12 w-12 rounded-xl mr-3 object-contain" />
+        <span class="text-2xl md:text-3xl font-bold text-primary">Umang '25</span>
       </a>
-      <nav class="hidden md:flex space-x-10 font-semibold">
-        <a href="index.html" class="hover:text-primary transition">Home</a>
-        <a href="events.html" class="hover:text-primary transition">Events</a>
-        <a href="team.html" class="hover:text-primary transition">Team</a>
-        <a href="contact.html" class="hover:text-primary transition">Contact</a>
-      </nav>
-      <button id="menu-toggle" class="md:hidden p-2">
-        <span class="material-icons text-3xl text-primary">menu</span>
-      </button>
+      <div class="flex items-center gap-3">
+        <nav class="hidden md:flex space-x-8 font-semibold mr-4">
+          <a href="index.html" class="text-primary font-bold transition">Home</a>
+          <a href="events.html" class="text-gray-700 hover:text-primary transition">Events</a>
+          <a href="team.html" class="text-gray-700 hover:text-primary transition">Team</a>
+          <a href="contact.html" class="text-gray-700 hover:text-primary transition">Contact</a>
+        </nav>
+        <button id="menu-toggle" class="md:hidden p-2">
+          <span class="material-icons text-3xl text-primary">menu</span>
+        </button>
+      </div>
     </div>
+
     <!-- Mobile Nav -->
-    <nav
-      id="mobile-nav"
-      class="fixed top-0 left-0 w-full h-screen bg-white dark:bg-black z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300"
-      style="display: none;"
-    >
-      <button id="menu-close" class="absolute top-5 right-8 text-gray-700 dark:text-gray-200">
+    <nav id="mobile-nav" class="fixed top-0 left-0 w-full h-screen bg-white z-50 flex flex-col items-center justify-center font-semibold text-xl space-y-6 transition-all duration-300" style="display: none;">
+      <button id="menu-close" class="absolute top-5 right-8 text-gray-700">
         <span class="material-icons text-3xl">close</span>
       </button>
-      <a href="index.html" class="hover:text-primary transition">Home</a>
-      <a href="events.html" class="hover:text-primary transition">Events</a>
-      <a href="team.html" class="hover:text-primary transition">Team</a>
-      <a href="contact.html" class="hover:text-primary transition">Contact</a>
-      <!-- <button id="dark-toggle" class="mt-8 px-4 py-2 rounded-xl bg-primary text-white font-semibold shadow hover:bg-[#003b5c] transition">
-        Toggle Dark Mode
-      </button> -->
+      <a href="index.html" class="text-primary font-bold transition">Home</a>
+      <a href="events.html" class="text-gray-700 hover:text-primary transition">Events</a>
+      <a href="team.html" class="text-gray-700 hover:text-primary transition">Team</a>
+      <a href="contact.html" class="text-gray-700 hover:text-primary transition">Contact</a>
     </nav>
   </header>
 
@@ -418,56 +414,97 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 dark:bg-black text-white py-12 mt-20" id="contact">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="flex flex-col md:flex-row gap-8 justify-between">
-        <div class="flex-1 text-center md:text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Address</h4>
-          <p>
-            26C, Opposite to Infosys Gate 10<br />
-            Electronic City Phase 1, Hosur Road<br />
-            Bengaluru - 560100, Karnataka
-          </p>
+   <!-- Beautiful Footer -->
+    <footer class="bg-gray-800 /* dark:bg-black */ text-white py-16 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-primary/50 rounded-full blur-3xl"></div>
         </div>
-        <div class="flex-1 text-center md:text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Contact Info</h4>
-          <ul>
-            <li>Bharat: <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a></li>
-            <li>Mithilesh: <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a></li>
-            <li>Tarun: <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a></li>
-            <li>Email: <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a></li>
-          </ul>
-        </div>
-        <div class="flex-1 text-left">
-          <h4 class="text-lg font-bold mb-2 text-primary">Follow Us</h4>
-          <ul class="flex flex-col gap-2 items-start">
-            <li>
-              <a href="https://www.instagram.com/umangiiitb" target="_blank" class="hover:underline flex items-center gap-2">
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
-                </svg>
-                <span>@umangiiitb</span>
-              </a>
-            </li>
+        
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Address Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">location_on</span>
+                        <h4 class="text-xl font-bold text-primary">Address</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4">
+                        <p class="leading-relaxed text-gray-100 font-medium">
+                            26C, Opposite to Infosys Gate 10<br />
+                            Electronic City Phase 1, Hosur Road<br />
+                            Bengaluru - 560100, Karnataka
+                        </p>
+                    </div>
+                </div>
 
-            <li>
-              <a href="https://www.instagram.com/sportscommiiitb" target="_blank" class="hover:underline flex items-center gap-2">
-                <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
-                </svg>
-                <span>@sportscommiiitb</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+                <!-- Contact Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">phone</span>
+                        <h4 class="text-xl font-bold text-primary">Contact Info</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-3">
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Bharat: <a href="tel:918824119467" class="text-primary hover:underline">+91 88241 19467</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Mithilesh: <a href="tel:919591544183" class="text-primary hover:underline">+91 95915 44183</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">📞</span>
+                            <span>Tarun: <a href="tel:918147691596" class="text-primary hover:underline">+91 81476 91596</a></span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start space-x-2">
+                            <span class="text-primary">✉️</span>
+                            <span>Email: <a href="mailto:sportscomm@iiitb.ac.in" class="text-primary hover:underline">sportscomm@iiitb.ac.in</a></span>
+                        </div>
+                    </div>
+                </div>
 
-      <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-300">
-        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
-      </div>
-    </div>
-  </footer>
+                <!-- Social Media Section -->
+                <div class="text-center md:text-left space-y-4">
+                    <div class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                        <span class="material-icons text-primary text-2xl">share</span>
+                        <h4 class="text-xl font-bold text-primary">Follow Us</h4>
+                    </div>
+                    <div class="glass-effect rounded-lg p-4 space-y-4">
+                        <a href="https://www.instagram.com/umangiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@umangiiitb</span>
+                        </a>
+                        <a href="https://www.instagram.com/sportscommiiitb" target="_blank" 
+                           class="flex items-center justify-center md:justify-start space-x-3 hover:bg-primary/10 p-2 rounded-lg transition-all group">
+                            <svg class="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75 5.75 0 007.75 22h8.5A5.75 5.75 0 0022 16.25v-8.5A5.75 5.75 0 0016.25 2h-8.5zm0 2.25h8.5c1.96 0 3.5 1.54 3.5 3.5v8.5c0 1.96-1.54 3.5-3.5 3.5h-8.5c-1.96 0-3.5-1.54-3.5-3.5v-8.5c0-1.96 1.54-3.5 3.5-3.5zm4.25 2.25A5.25 5.25 0 1017.25 12c0-2.899-2.351-5.25-5.25-5.25zM12 8.25A3.75 3.75 0 1115.75 12A3.75 3.75 0 0112 8.25zm5.5-.25a1 1 0 110 2 1 1 0 010-2z"/>
+                            </svg>
+                            <span class="group-hover:text-primary transition-colors">@sportscommiiitb</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <div class="text-center">
+                    <p class="text-gray-300 text-sm">
+                        &copy; <script>document.write(new Date().getFullYear())</script> International Institute of Information Technology, Bangalore. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+
+  <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
 
   <!-- Minimal JS to toggle mobile nav (optional) -->
   <script>
