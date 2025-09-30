@@ -263,11 +263,20 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-bottom: 3rem;
             animation: fadeIn 1s ease-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .dark .map-container,
         .dark .instagram-container {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Center Instagram iframe specifically */
+        .instagram-container iframe {
+            margin: 0 auto !important;
+            display: block !important;
         }
 
         /* Add this in the existing style section in head */
